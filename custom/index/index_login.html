@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="Pragma" content="no-cache">   
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<script type="text/javascript" src="./script/md5.js?v=time"></script>
+<title>管理平台登陆</title>
+<style type="text/css">
+body{margin:0;padding:0;margin-top:100px;font-size:12px;background: #8C93A6;}
+td{color:#000;font-size:12px;}
+td{font-family:verdana,"宋体";}
+#toptr{height:70px;}
+#top{position:relative; width:790px;height:70px; z-index:5; background-color:#022556; background:url(./images/login_top.jpg); background-repeat:no-repeat;top:0px;}
+
+#bottomtr{height:20px;}
+#lefttd{width:30px;}
+#bgimg{position:relative;width:500px; height:275px;margin:0 auto; margin-top:60px; border-top:#147fbf 1px solid; border-left:#147fbf 1px solid; border-right:#147fbf 1px solid; border-bottom:#147fbf 1px solid; background-position:left 40px; background:#427594;}
+#loginput_bak{solid #0080F8;width:180px;font-family:"宋体",verdana;}
+.loginput{width:135px;border:1px #87a6c3 solid;background:#edeced;}
+.bt{background:url(/images/bt.jpg);width:58px;height:16px;margin:0px;padding:0px;border:0px;font-size:12px;} 
+
+.title_index{
+	position:absolute;
+	height:45px;
+	width:320px;
+	font-size:18px;
+	font-weight:bold;
+	color:white;
+	text-align:left;
+	left:136px;
+	top: 90px;
+}
+</style>
+<script>
+window.onload=function(){
+	window.document.loginform.username.focus();
+}
+function change_lang_en(){
+//  document.getElementById("english").style.color = '#FFFFFF';
+//  document.getElementById("chinese").style.color = '#000000';
+    document.getElementById("lang").value = 'en';
+    document.getElementById("lang_user").innerHTML = 'Username:';
+    document.getElementById("lang_password").innerHTML = 'Password:';
+    document.getElementById("Submit").value = 'Login';
+    document.getElementById("Regist").value = 'Cancel';
+    document.getElementById("username").focus();
+}
+function change_lang_ch(){
+//  document.getElementById("english").style.color = '#000000';
+//  document.getElementById("chinese").style.color = '#FFFFFF';
+    document.getElementById("lang").value = 'zh';
+    document.getElementById("lang_user").innerHTML = '用户名：';
+    document.getElementById("lang_password").innerHTML = '密&nbsp;&nbsp;&nbsp;码：';
+    document.getElementById("Submit").value = '用户登录';
+    document.getElementById("Regist").value = '设备注册';
+    document.getElementById("username").focus();
+}
+function detectCapsLock(e){
+  var valueCapsLock=e.keyCode||e.which;
+  var valueShift=e.shiftKey ? e.shiftKey:((valueCapsLock==16 ) ? true : false );
+  if (((valueCapsLock >=65 && valueCapsLock <= 90 ) && ! valueShift)||((valueCapsLock >=97 && valueCapsLock <= 122 ) && valueShift))  
+  {
+    //document.getElementById("password").title = "您的大写锁定键已打开！";
+    document.getElementById("capStatus").innerHTML = "(大写锁定键已打开！)";
+  }
+  else
+  {
+    //document.getElementById("password").title = "";
+    document.getElementById("capStatus").innerHTML = "";
+  }
+}
+window.onload=function(){
+	window.document.loginform.username.focus();
+	change_lang_ch();
+}
+function isValidAscii(val)
+{
+    for ( var i = 0 ; i < val.length ; i++ )
+    {
+        var ch = val.charAt(i);
+        if ( ch < ' ' || ch > '~' )
+        {
+            return false;
+        }
+    }
+    return true;
+}
+function cancel_login(){
+  //document.loginform.action="./userlogin.html";
+  var nonedatav = Math.random();
+  window.location = "./login.html?none="+nonedatav;
+  //loginform.submit();
+}
+
+ //创建AJAX引擎
+var xmlhttp = null;
+function createXmlhttp () {
+ if (window.XMLHttpRequest) {
+     //针对FireFox，Mozillar，Opera，Safari，IE7，IE8
+//	alert(navigator.userAgent);
+     xmlhttp = new XMLHttpRequest();
+     //针对某些特定版本的mozillar浏览器的BUG进行修正
+     if (xmlhttp.overrideMimeType) {
+            xmlhttp.overrideMimeType("text/xml");
+        }
+ 	}else if (window.ActiveXObject) {
+         //针对IE6，IE5.5，IE5
+        //两个可以用于创建XMLHTTPRequest对象的控件名称，保存在一个js的数组中
+        //排在前面的版本较新
+        var activexName = ["MSXML2.XMLHTTP","Microsoft.XMLHTTP"];
+        for (var i = 0; i < activexName.length; i++) {
+            try{
+                //取出一个控件名进行创建，如果创建成功就终止循环
+                //如果创建失败，回抛出异常，然后可以继续循环，继续尝试创建
+                xmlhttp = new ActiveXObject(activexName[i]);
+                break;
+            } catch(e){
+			//	alert(e);
+            }
+        }
+    }
+}
+var currentCallBack = null;
+var nonedatav = Math.random();
+//发送请求内容
+function sendRequest(url,param,callback){
+    currentCallBack = callback;
+    createXmlhttp ();
+	try{
+		//xmlhttp.onreadystatechange = processResponse;  //回调方法
+		xmlhttp.open("post",url + ".cgi",false); // true异步
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+		if(!param['mode_name']){
+			var str = "mode_name="+url+"&";
+			str += "nonedata="+nonedatav+"&";
+		}else{
+			var str = '';
+			str += "nonedata="+nonedatav+"&";
+		}
+		for(var i in param){
+			str += i + "=" + encodeURIComponent(param[i]) + "&";
+		}
+		str = str.substring(0,str.length -1);
+		xmlhttp.send(str);
+		
+		var str = xmlhttp.responseText;
+		var webdata = eval("("+str+")");
+		if(currentCallBack)
+		{
+			currentCallBack(webdata);
+		}
+		
+	}catch(e){
+	//	alert(e);
+	}
+}
+function processResponse() {
+	if ( xmlhttp.readyState == 4 ) {
+		if ( xmlhttp.status == 200 ||  xmlhttp.status==0) {
+			var str = xmlhttp.responseText;
+			var webdata = eval("("+str+")");
+			if(currentCallBack){
+				currentCallBack(webdata);
+			}
+		}
+	}
+}
+function init_login(){
+document.getElementById("username").focus();
+	var obj = new Object;
+	sendRequest("/boaform/web_login_error",obj,function(data){ 
+					if(data == "three_error_login")
+					{
+						alert("密码错误三次，请一分钟之后重新登录！");
+						document.getElementById('username').disabled = true;
+		    		document.getElementById('password').disabled = true;
+		    		document.getElementById('Submit').disabled = true;
+		    		document.getElementById('Regist').disabled = true;
+					}
+					else
+					{
+						document.getElementById('username').disabled = false;
+		    		document.getElementById('password').disabled = false;
+		    		document.getElementById('Submit').disabled = false;
+		    		document.getElementById('Regist').disabled = false;
+					}
+					
+		});	
+		
+	 sendRequest("/boaform/web_Capability_show",obj,function(datav){ 
+					document.getElementById('potsnum').value = datav.g_potsnum;
+					document.getElementById('landevicenum').value = datav.g_landevicenum;
+					document.getElementById('wandevicenum').value = datav.g_wandevicenum;
+					document.getElementById('lanportnum').value = datav.g_lanportnum;
+					document.getElementById('usbportnum').value = datav.g_usbportnum;
+					document.getElementById('wlannum').value = datav.g_wlannum;
+					document.getElementById('areainfo').value = datav.g_areainfo;
+		});		
+}
+function login(){
+if(document.getElementById("username").value == "")
+	{
+		alert("用户名不能为空");
+		return;
+	}
+	if (!isValidAscii(document.getElementById("username").value))
+	{
+		alert("用户名包含非法字符.");
+		return;
+	}
+	if(document.getElementById("password").value == "")
+	{
+		alert("密码不能为空");
+		return;
+	}
+	if (!isValidAscii(document.getElementById("password").value))
+	{
+		alert("密码包含非法字符.");
+		return;
+	}
+  var web_Username = document.getElementById('username').value;
+  var web_Password = document.getElementById('password').value;
+  var obj = new Object;
+  obj.web_login_name = web_Username;
+	obj.web_login_password = b64_md5(web_Password);
+	var cgipath = "/aoaform/";
+	if(web_Username == "useradmin")
+	{
+		cgipath = "/aoaform/";
+	}else
+	{
+		cgipath = "/boaform/";	
+	}
+	var nonedatav = Math.random();
+	var potsnumval = document.getElementById('potsnum').value;
+	var wlannumval = document.getElementById('wlannum').value;
+	var usbportnumval = document.getElementById('usbportnum').value;
+	
+	var areaval = document.getElementById('areainfo').value;
+	sendRequest(cgipath+"web_login_exe", obj,function(data){
+		if(data == "success_telecomadmin")
+	  {
+			window.location = "./index_content.html?potsnum="+potsnumval+"&areainfo="+areaval+"&wlannum="+wlannumval+"&usbnum="+usbportnumval+"&noned="+nonedatav;
+		}
+		else if(data == "success_useradmin")
+		{
+		    window.location = "./index_content_user.html?potsnum="+potsnumval+"&areainfo="+areaval+"&wlannum="+wlannumval+"&usbnum="+usbportnumval+"&noned="+nonedatav;
+		 }
+		else if(data == "invalid_username")
+		{
+			alert("用户名错误，请重新输入！");
+		    window.location.reload();
+		}
+		else if(data == "bad_password")
+		{
+			alert("密码错误，请重新输入！");
+		    window.location.reload();
+		}
+		else if(data == "one_user_login")
+		{
+			alert("当前已有一个用户已登陆，退出已登陆用户重试！");
+		    window.location.reload();
+		}
+		else if(data == "three_error_login")
+		{
+			alert("密码错误三次，请一分钟之后重新登录！");
+		    //window.location.reload();
+		    document.getElementById('username').disabled = true;
+		    document.getElementById('password').disabled = true;
+		}
+		else if(data == "invalid_password")
+		{
+			alert("无效的密码，请重新输入！");
+		    window.location.reload();
+		}
+		else if(data == "telecomadmin_disabled_err")
+		{
+			alert("维护账号使能未打开！");
+		    window.location.reload();
+		}
+		else if(data == "get_password_err")
+		{
+			alert("从CM查询密码错误！");
+		    window.location.reload();
+		}
+		else
+		{
+			alert("未知的返回值");
+		}
+	});
+}
+document.onkeydown=function(event){ 
+	e = event ? event :(window.event ? window.event : null); 
+	if(e.keyCode==13)
+	{ 
+   	login();
+	} 
+} 
+</script>
+</head>
+
+<body onload="init_login();">
+<table align="center" cellpadding="0" cellspacing="0" id="bgimg" > 
+    <form name="loginform" id="loginform" action="" method="post">
+        <input type="hidden" name="lang" id="lang" value="zh"/>
+		<tr id="toptr"><td height="67" colspan="2"><div id="top" style="width:100%;"></div></td></tr>
+		<tr>
+			<td id="lefttd"></td>
+			<td>
+                <table width="450" height="207" border="0" cellpadding="0" cellspacing="3" id="logininput">
+                    <tr>
+                    <td height="62" colspan="3">
+                    <div class="title_index"><span> 欢迎使用天翼宽带家庭网关 </span><br/>
+                    <span style="font-size:14px;font-weight:normal;" > 请输入用户名、密码登录 </span>
+                    </div>
+                    </td>
+                  </tr>
+					<tr>
+						<td style="color:white;" width="172" height="27" align="right" id="lang_user">用户名:</td>
+						<td colspan="2" align="left"><input type="text" id="username" name="username" value="useradmin" maxlength="32" class="loginput" /></td>
+					</tr>
+					<tr>
+						<td style="color:white;" height="18" align="right" id="lang_password">密&nbsp;&nbsp;&nbsp;码:</td>
+						<td colspan="2" align="left"><input type="password" id="password" name="password" maxlength="32"  class="loginput" onkeypress="detectCapsLock(event)" /><font id ="capStatus" color="#FFFFFF"></font>
+					</tr>
+					<tr>
+						<td height="85"></td>
+                    <td width="68" colspan="1"><input type="button" name="Submit" id="Submit" value="用户登录" onclick="login();" /></td>
+                    <td width="198" colspan="1" ><input type="button" name="Regist" id="Regist" value="设备注册" onclick="cancel_login();" /></td>
+				  </tr>
+				</table>
+		  </td>
+		</tr>
+		<tr id="bottomtr"><td></td></tr>
+	</form>
+</table>
+<input type="hidden" name="potsnum" id="potsnum" value="1"/>
+<input type="hidden" name="landevicenum" id="landevicenum" value="1"/>
+<input type="hidden" name="wandevicenum" id="wandevicenum" value="1"/>
+<input type="hidden" name="lanportnum" id="lanportnum" value="2"/>
+<input type="hidden" name="usbportnum" id="usbportnum" value="0"/>
+<input type="hidden" name="wlannum" id="wlannum" value="0"/>
+<input type="hidden" name="areainfo" id="areainfo" value="0"/>
+</body>
+</html>

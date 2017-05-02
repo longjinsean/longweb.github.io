@@ -1,0 +1,507 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>业务注册</title>
+<script type="text/javascript" src="./script/md5.js?v=time"></script>
+<link type="text/css" href="css/login.css?v=time" rel="stylesheet"/>
+<style type="text/css">
+body{ margin:0; padding:0;font-family:"微软雅黑", Tahoma, Verdana, sans-serif; color:#87857F; }
+form{ margin:0; padding:0;}
+#web_bg {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: -1
+}
+#web_bg img {
+    /*height: 100%;*/
+    /*position: fixed;*/
+    /*width: 100%;*/
+    position:relative;
+    top:160px;
+    left:600px;
+    overflow:hidden;
+    zoom:1;
+    width:800px;
+
+}
+.green_text{ color:#5ABD12;}
+.blue_text{ color:#3193d8;}
+/*登录*/
+/*#login_area{ position:absolute;top:350px;left:800px; zoom:1; overflow:hidden;width:500px;}*/
+#login_wrap{
+	/*background:white;*/
+	opacity:0.9;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.5);
+	width:500px;
+	padding:120px 0;
+}
+
+.login_layer { margin:0 auto; width:423px;zoom:1; overflow:hidden; position:absolute;left:110px;top:12px;}
+.login_layer1 { margin:0 auto; width:400px; zoom:1; overflow:hidden; position:absolute;left:22px;}
+/*#login_set { margin:0 auto; width:375px; zoom:1; overflow:hidden;}*/
+#pwd_check{ height:45px; margin:0 auto; width:375px; }
+.login_txt_l{ float:left;width:100%;margin:2px 0;font-size:12px;height:25px;}
+.login_txt_l label{ width:13%; color:#767874; font-size:12px; line-height:20px; height:20px; display:block; float:left;}
+.login_txt_l span{ width:5%; font-size:12px; line-height:20px; height:20px; display:block; float:left;}
+.login_txt_l input.txt {border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; font-size: 12px; color: #62615e; padding:1px 0 1px 0px; border: 1px solid #cccac8; float:left; width:120px;}
+.login_txt_l input.txt_normal { border: 1px solid #cccac8; background:#FFF;}
+.login_txt_l input.txt_focus{ border:1px solid #cccac8; background:FFF;	}
+.login_txt_l input.txt_error{ border:1px solid #C66161;background:#FBE2E2;}
+.login_btn_l{ text-align:center;}
+/*.login_btn{ width:90px; height:30px; text-align:center;}*/
+.login_btn { background: #2f94db; font-size: 12px; color: #FFF; padding: 2px 17px; border:1px solid #1884d0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; cursor:pointer; margin:0 20px; text-align:center; width:auto; overflow:visible;}
+.login_btn1 { background: #2f94db; font-size: 12px; color: #FFF; padding: 2px 17px; border:1px solid #1884d0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; cursor:pointer; margin:0 20px; text-align:center; width:auto; overflow:visible;}
+.login_btn_disabled { background: #e7e7e7; font-size: 12px; color: #e7e7e7; padding: 2px 17px; border:1px solid #e7e7e7; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;  margin:0 20px; text-align:center; width:auto; overflow:visible;}
+.login_btn1_disabled { background: #e7e7e7; font-size: 12px; color: #e7e7e7; padding: 2px 17px; border:1px solid #e7e7e7; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;  margin:0 20px; text-align:center; width:auto; overflow:visible;}
+.text_left { text-align:left;}
+.text_center { text-align:center;}
+
+/*-----------------*/
+.logout{
+	font-family:"SimSun";
+	font-size:12px;
+	color:#0436A5;
+	/*font-weight:bold;*/
+	text-align:center;
+	text-decoration:none;
+	cursor:pointer;
+}
+.message0{
+	font-family:"SimSun";
+	font-size:12px;
+	color:##767874;
+	/*font-weight:bold;*/
+	/*text-align:center;*/
+	text-decoration:none;
+	cursor:pointer;
+}
+.message1{
+	font-family:"SimSun";
+	font-size:12px;
+	color:##767874;
+	/*font-weight:bold;*/
+	/*text-align:center;*/
+	text-decoration:none;
+	cursor:pointer;
+}
+.message2{
+	font-family:"SimSun";
+	font-size:12px;
+	color:##767874;
+	/*font-weight:bold;*/
+	/*text-align:center;*/
+	text-decoration:none;
+	cursor:pointer;
+}
+.message3{
+	font-family:"SimSun";
+	font-size:12px;
+	color:##767874;
+	/*font-weight:bold;*/
+	/*text-align:center;*/
+	text-decoration:none;
+	cursor:pointer;
+}
+.message4{
+	font-family:"SimSun";
+	font-size:12px;
+	color:##767874;
+	/*font-weight:bold;*/
+	/*text-align:center;*/
+	text-decoration:none;
+	cursor:pointer;
+}
+</style>
+
+<script type="text/javascript">
+var loidObj = new Object();
+var wifiObj = new Object();
+function init_login(){
+	if(navigator.userAgent.indexOf("MSIE 6.0")!=-1){
+
+	}
+	document.getElementById("loid_user").disabled = false;
+	document.getElementById("loid_pwd").disabled = false;
+	document.getElementById("save_loid").disabled = false;
+	document.getElementById("save_loid1").disabled = false;
+	document.getElementById("save_loid").className = "login_btn";
+	document.getElementById("save_loid1").className = "login_btn1";
+	sendRequest("/boaform/web_loid_auth_show","none:noned",function(datax){
+			if(parseInt(datax.web_ucTimes) > parseInt(datax.web_ucLimit)){
+				document.getElementById("loid_set").style.display = "none";
+	      document.getElementById("loid_timemsg").style.display = "block";
+			}
+
+			document.getElementById("loid_user").value = datax.login_name;
+			document.getElementById("loid_pwd").value = datax.login_password;
+		});
+}
+
+ //创建AJAX引擎
+var xmlhttp = null;
+function createXmlhttp () {
+ if (window.XMLHttpRequest) {
+     //针对FireFox，Mozillar，Opera，Safari，IE7，IE8
+//	alert(navigator.userAgent);
+     xmlhttp = new XMLHttpRequest();
+     //针对某些特定版本的mozillar浏览器的BUG进行修正
+     if (xmlhttp.overrideMimeType) {
+            xmlhttp.overrideMimeType("text/xml");
+        }
+	}else if (window.ActiveXObject) {
+         //针对IE6，IE5.5，IE5
+        //两个可以用于创建XMLHTTPRequest对象的控件名称，保存在一个js的数组中
+        //排在前面的版本较新
+        var activexName = ["MSXML2.XMLHTTP","Microsoft.XMLHTTP"];
+        for (var i = 0; i < activexName.length; i++) {
+            try{
+                //取出一个控件名进行创建，如果创建成功就终止循环
+                //如果创建失败，回抛出异常，然后可以继续循环，继续尝试创建
+                xmlhttp = new ActiveXObject(activexName[i]);
+                break;
+            } catch(e){
+			//	alert(e);
+            }
+        }
+    }
+}
+var currentCallBack = null;
+var nonedatav = Math.random();
+function sendRequest(url,param,callback){
+    currentCallBack = callback;
+    createXmlhttp ();
+	try{
+		//xmlhttp.onreadystatechange = processResponse;  //回调方法
+		xmlhttp.open("post",url + ".cgi",false); // true异步
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+		if(!param['mode_name']){
+			var str = "mode_name="+url+"&";
+			str += "nonedata="+nonedatav+"&";
+		}else{
+			var str = '';
+			str += "nonedata="+nonedatav+"&";
+		}
+		for(var i in param){
+			str += i + "=" + encodeURIComponent(param[i]) + "&";
+		}
+		str = str.substring(0,str.length -1);
+		xmlhttp.send(str);
+
+		var str = xmlhttp.responseText;
+		var webdata = eval("("+str+")");
+		if(currentCallBack)
+		{
+			currentCallBack(webdata);
+		}
+
+	}catch(e){
+	//	alert(e);
+	}
+}
+function processResponse() {
+	if ( xmlhttp.readyState == 4 ) {
+		if ( xmlhttp.status == 200 ||  xmlhttp.status==0) {
+			var str = xmlhttp.responseText;
+			var webdata = eval("("+str+")");
+			if(currentCallBack){
+				currentCallBack(webdata);
+			}
+		}
+	}
+}
+
+function save_loid(){
+		if((document.getElementById("loid_user").value == null) || (document.getElementById("loid_user").value == "") || (document.getElementById("loid_user").value == " "))
+		{
+			alert("逻辑ID为空");
+			return;
+		}
+		if(document.getElementById("loid_pwd").value == "0")
+		{
+			alert("密码不能是单个字符0");
+			return;
+		}
+		if((document.getElementById("loid_pwd").value == null) || (document.getElementById("loid_pwd").value == "") || (document.getElementById("loid_pwd").value == " "))
+		{
+			document.getElementById("loid_pwd").value = "0";
+		}
+		result_loid();
+		var obj = new Object;
+    obj.login_name = document.getElementById('loid_user').value;
+	  obj.login_password = document.getElementById('loid_pwd').value;
+	  sendRequest("/boaform/web_loid_auth_ext", obj,function(datav){
+			if(datav=="SUCCESS")
+			{
+				//alert("注册成功");
+			}
+			else if(datav=="4")
+			{
+				alert("设置失败");
+				return;
+			}
+			else
+			{
+			}
+		});
+		processbar(77);
+		var timeoutcount = 0;
+		var dev_timer=window.setInterval(function(){
+			var loidstr = " ";
+		sendRequest("/boaform/web_loid_auth_show", "none:noned",function(data){
+			var loidstr20 = "正在注册OLT;<br/>";
+			var loidstr30 = "正在获取管理IP;<br/>";
+			var loidstrerr30 = "<div style='color:red;'>在OLT上注册失败，请检查光信号灯是否处于熄灭状态、逻辑ID和密码是否正确;</div><br/>";
+			var loidstr40 = "已获得管理IP，正在连接TCMS;<br/>";
+			var loidstrerr40 = "<div style='color:red;'>到TCMS的通道不通，请联系客户经理;</div><br/>";
+			var loidstr50 = "等待TCMS平台下发业务数据;<br/>";
+			var loidstrerr50 ="<div style='color:red;'>在TCMS上注册失败，请检查逻辑ID和密码是否正确;</div><br/>";
+			var loidstr60 = "TCMS平台正在下发业务数据，请勿断电或拔光纤;<br/>";
+			var loidstrerr60 = "<div style='color:red;'>在TCMS上注册失败，请联系客户经理;</div><br/>";
+			var loidstr61to99 = "TCMS平台正在下发"+ (data.web_service_current) +"业务数据，请勿断电或拔光纤;<br/>";
+			var loidstrerr61to99 = "<div style='color:red;'>TCMS下发业务异常，请联系客户经理;</div><br/>";
+			var loidstr100 = "TCMS平台业务数据下发成功，共下发了"+data.web_service_plan+";"+data.web_service_count+"个业务<br/>";
+			var loiderr501 = "<div style='color:red;'>已经注册成功，无需再注册！ </div><br/>";
+
+			switch (parseInt(data.web_loidplan))
+			{
+				case 0:
+					loidstr = loidstr20;
+		break;
+	case 2:
+		processbar(77);
+		loidstr = loidstr20;
+		break;
+	case 3:
+		processbar(115);
+		loidstr = loidstr20 + loidstr30;
+		break;
+	case 4:
+		processbar(154);
+		loidstr = loidstr20 + loidstr30 + loidstr40;
+		break;
+	case 5:
+		processbar(192);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50;
+		break;
+	case 6:
+		processbar(231);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loidstr60;
+		break;
+	case 7:
+		processbar(269);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loidstr60 + loidstr61to99;
+		break;
+	case 8:
+		processbar(308);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loidstr60 + loidstr61to99;
+		break;
+	case 9:
+		processbar(347);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loidstr60 + loidstr61to99;
+		break;
+	case 10:
+		processbar(385);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loidstr60 + loidstr61to99 + loidstr100;
+		window.clearInterval(dev_timer);
+		break;
+	default:
+		break;
+			}
+
+			switch (parseInt(data.web_loiderrcode))
+			{
+				case 0:
+		break;
+	case 1:
+		//processbar(115);
+		loidstr = loidstr20 + loidstrerr30;
+		break;
+	case 2:
+		//processbar(154);
+		loidstr = loidstr20 + loidstr30 + loidstrerr40;
+		break;
+	case 3:
+		//processbar(192);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstrerr50;
+		break;
+	case 4:
+		//processbar(231);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loidstrerr60;
+		break;
+	case 5:
+		//processbar(269);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loidstr60 + loidstrerr61to99;
+		break;
+	case 6:
+		//processbar(269);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loiderr501;
+		break;
+	default:
+		break;
+			}
+
+			if(parseInt(data.web_loiderrcode) != 0)
+			{
+				window.clearInterval(dev_timer);
+	document.getElementById("message1_loid").innerHTML = "<strong>"+loidstr+"</strong>";
+	document.getElementById("reregist").style.display = "block";
+	return;
+			}
+
+			if(parseInt(data.web_loidplan) >= 6)
+			{
+				timeoutcount++;
+			}else
+			{
+				timeoutcount = 0;
+			}
+
+			if(timeoutcount >= 100)
+			{
+				if(parseInt(data.web_loiderrcode) == 0)
+				{
+					processbar(385);
+		loidstr = loidstr20 + loidstr30 + loidstr40 + loidstr50 + loidstr60 + loidstr61to99 + loidstr100;
+		window.clearInterval(dev_timer);
+		sendRequest("/boaform/web_loid_auth_over","none:noned",function(data){
+					});
+				}
+			}
+
+			document.getElementById("message1_loid").innerHTML = "<strong>"+loidstr+"</strong>";
+		});
+		},3000);
+}
+
+function processbar(bar)
+{
+  if (bar <= 385)
+  {
+      document.getElementById("processbar").style.width = bar + "px";
+      var perval = "20%";
+      switch(bar)
+      {
+	case 10:
+		perval = "10%";break;
+	case 77:
+		perval = "20%";break;
+	case 115:
+		perval = "30%";break;
+	case 154:
+		perval = "40%";break;
+	case 192:
+		perval = "50%";break;
+	case 231:
+		perval = "60%";break;
+	case 269:
+		perval = "70%";break;
+	case 308:
+		perval = "80%";break;
+	case 347:
+		perval = "90%";break;
+	case 385:
+		perval = "100%";break;
+	default:
+		break;
+      }
+      document.getElementById("pernum").innerHTML = perval;
+  }
+}
+function back_index(){
+/*	sendRequest("/boaform/web_logout_ext",{"user_level":"0"},function(data){
+	});	*/
+	var nonedatav = Math.random();
+	window.location.replace("./index.html?none="+nonedatav);
+}
+function refresh_loid(){
+		var nonedatav = Math.random();
+	window.location.replace("./login.html?none="+nonedatav);
+}
+function goto_loid_page(){
+	var nonedatav = Math.random();
+	window.location.replace("./login.html?none="+nonedatav);
+}
+function result_loid()
+{
+	document.getElementById("loid_set").style.display = "none";
+	document.getElementById("loid_set1").style.display = "block";
+	document.getElementById("contentdiv").style.height = 170;
+	document.getElementById("message1_loid").innerHTML = "<strong>正在注册OLT;</strong>";
+}
+</script>
+</head>
+<body onload="init_login();">
+<!--<div id="pagediv" style="width:808px;height:540px;background-image:url(./images/bg.jpg);position:absolute;top:120px;left:587px;">-->
+<div id="pagediv" style="width:808px;height:540px;position:absolute;margin-top:-270px;margin-left:-404px;top:50%;left:50%;">
+<div id="login_out" style="width:90px;height:25px;position:absolute;top:148px;bottom:0px;right:100px;padding:0px;">
+	<span class="logout" id="logout" onclick="back_index();"><u>返回登录页面</u></span>
+</div>
+	<div id="login_area" style="position:absolute;top:160px;left:210px;width:423px;height:110px;">
+		<div id="loid_set" class="login_layer">
+			<div class="login_txt_l">
+				<label for="">逻辑 ID:</label>
+				<input id="loid_user"  maxlength="24" type="text" class="txt"/>
+				<span style="color:red">*</span>
+			</div>
+			<div class="login_txt_l">
+				<label for="">密码:</label>
+				<input id="loid_pwd" maxlength="12" type="text" class="txt" />
+			</div>
+			<div class="login_txt_l">
+				<input id="save_loid" class="login_btn" type="button" value="确 定" onclick="save_loid();" />
+				<input id="save_loid1" class="login_btn1" type="button" value="重 置" onclick="refresh_loid();" />
+			</div>
+		</div>
+<!-- -->
+    <div id="loid_timemsg" class="login_layer1" style="display:none;">
+        <div class="login_txt_l text_center">超过注册限制次数，请联系客户经理.</div>
+    </div>
+<!-- -->
+	</div>
+<div id="contentdiv" style="position:absolute;top:260px;left:210px;bottom:0px;padding:0px;width:423px;height:90px;">
+<div id="loid_set1" class="login_layer1" style="display:none;left:5px;">
+		<div id="pernum" style="width: 385px; height: 15px;text-align:center;padding-bottom:3px;">20%</div>
+		<div style="width: 385px; height: 15px; border: solid 1px #FF8000; padding: 1px;">
+        <div id="processbar" style="background-color: #FF8000; width: 0px; height: 15px;"></div>
+    </div>
+        <div id="message1_loid" class="login_txt_l text_left" style="overflow-y:auto;overflow-x:hidden;height:140px;"></div><!-- children 2 -->
+      <!--  <div id="message2_loid" class="login_txt_l text_center"></div> -->
+    <div id="reregist" style="display:none;margin-left:68%;"><input id="goback" class="login_btn" type="button" value="重新注册" onclick="goto_loid_page();"/></div>
+</div>
+</div>
+</div>
+<!--<script language="javascript">
+	sendRequest("/boaform/web_query_register_status","none:noned",function(dataf){
+					if(dataf.itms_reg_status == "1")
+					{
+						document.getElementById("loid_user").disabled = true;
+						document.getElementById("loid_pwd").disabled = true;
+						document.getElementById("save_loid").disabled = true;
+						document.getElementById("save_loid1").disabled = true;
+						document.getElementById("save_loid").className = "login_btn_disabled";
+						document.getElementById("save_loid1").className = "login_btn1_disabled";
+					}
+					else
+					{
+						document.getElementById("loid_user").disabled = false;
+						document.getElementById("loid_pwd").disabled = false;
+						document.getElementById("save_loid").disabled = false;
+						document.getElementById("save_loid1").disabled = false;
+						document.getElementById("save_loid").className = "login_btn";
+						document.getElementById("save_loid1").className = "login_btn1";
+					}
+		});
+</script>-->
+</body>
+</html>

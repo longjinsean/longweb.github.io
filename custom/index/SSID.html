@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<script type="text/javascript" src="./script/md5.js?v=time"></script>
+<title>管理平台首次登陆</title>
+<style type="text/css">
+body{margin:0;padding:0;margin-top:100px;font-size:12px;background: #ffffff;}
+td{color:#000;font-size:12px}
+td{font-family:verdana,"宋体";}
+h3{color:red;}
+p{color:#6495ED;}
+input{display: inline}
+#toptr1,#toptr2{height:70px;}
+#top1,#top2{position:relative; width:500px;height:143px; z-index:5; background-color:#ffffff; background:url(./images/logo.jpg); background-repeat:no-repeat;background-size:500px 143px;top:0px;}
+#bg1,#bg2{background:#ffffff;}
+#Submit1{background:#3399CC;width:100px;}
+#Submit2{background:#3399CC;width:150px;}
+</style>
+<script>
+function keyLight(id, key, Color){
+	var oDiv = document.getElementById(id),
+	sText = oDiv.innerHTML,
+	sKey = "<span style='color: "+Color+";'>"+key+"</span>",
+	num = -1,
+	rStr = new RegExp(key, "g"),
+	rHtml = new RegExp("\<.*?\>","ig"), //匹配html元素
+	aHtml = sText.match(rHtml); //存放html元素的数组
+	sText = sText.replace(rHtml, '{~}');  //替换html标签
+	sText = sText.replace(rStr,sKey); //替换key
+	sText = sText.replace(/{~}/g,function(){  //恢复html标签
+	num++;
+	return aHtml[num];
+	});
+	oDiv.innerHTML = sText;
+}
+
+function init(){
+	var tag = getCookieValue("flag");
+        if(tag == 1){
+		window.location.href = "./index_login_shaanxi.html";
+	}
+	else{
+		document.getElementById("bg1").style.display = "";
+		document.getElementById("bg2").style.display = "none";
+		set();
+		var key1 = keyLight('same', 'WiFi密码', 'red');
+		var key2 = keyLight('same', '管理密码', 'red');
+		sendRequest("/boaform/wlan_basic_show","none:noned",function(datav){
+			data = datav.wifi_basic_list[0];
+			var ssid = data.wlanssid.split("-");
+			document.getElementById("username").defaultValue = ssid[1];
+		});
+	}
+}
+
+function addCookie(name,value,days,path){
+	var name = escape(name);
+	var value = escape(value);
+	var expires = new Date();
+	expires.setTime(expires.getTime() + days * 3600000 * 24);
+	//path=/，表示cookie能在整个网站下使用，path=/temp，表示cookie只能在temp目录下使用
+	path = path == "" ? "" : ";path=" + path;
+	//GMT(Greenwich Mean Time)是格林尼治平时，现在的标准时间，协调世界时是UTC
+	//参数days只能是数字型
+	var _expires = (typeof days) == "string" ? "" : ";expires=" + expires.toUTCString();
+	document.cookie = name + "=" + value + _expires + path;
+}
+function getCookieValue(name){
+	//用处理字符串的方式查找到key对应value
+	var name = escape(name);
+	//读cookie属性，这将返回文档的所有cookie
+	var allcookies = document.cookie;
+	//查找名为name的cookie的开始位置
+	name += "=";
+	var pos = allcookies.indexOf(name);
+	//如果找到了具有该名字的cookie，那么提取并使用它的值
+	if (pos != -1){                                             //如果pos值为-1则说明搜索"version="失败
+        var start = pos + name.length;                  //cookie值开始的位置
+        var end = allcookies.indexOf(";",start);        //从cookie值开始的位置起搜索第一个";"的位置,即cookie值结尾的位置
+        if (end == -1) end = allcookies.length;        //如果end值为-1说明cookie列表里只有一个cookie
+        var value = allcookies.substring(start,end);
+	return value;
+	}else{
+		return "";
+	}
+}
+function deleteCookie(name,path){
+	var name = escape(name);
+	var expires = new Date(0);
+	path = path == "" ? "" : ";path=" + path;
+	document.cookie = name + "="+ ";expires=" + expires.toUTCString() + path;
+}
+
+//创建AJAX引擎
+var xmlhttp = null;
+function createXmlhttp () {
+ if (window.XMLHttpRequest) {
+     //针对FireFox，Mozillar，Opera，Safari，IE7，IE8
+//	alert(navigator.userAgent);
+     xmlhttp = new XMLHttpRequest();
+     //针对某些特定版本的mozillar浏览器的BUG进行修正
+     if (xmlhttp.overrideMimeType) {
+            xmlhttp.overrideMimeType("text/xml");
+        }
+	}else if (window.ActiveXObject) {
+         //针对IE6，IE5.5，IE5
+        //两个可以用于创建XMLHTTPRequest对象的控件名称，保存在一个js的数组中
+        //排在前面的版本较新
+        var activexName = ["MSXML2.XMLHTTP","Microsoft.XMLHTTP"];
+        for (var i = 0; i < activexName.length; i++) {
+            try{
+                //取出一个控件名进行创建，如果创建成功就终止循环
+                //如果创建失败，回抛出异常，然后可以继续循环，继续尝试创建
+                xmlhttp = new ActiveXObject(activexName[i]);
+                break;
+            } catch(e){
+			//	alert(e);
+            }
+        }
+    }
+}
+var currentCallBack = null;
+var nonedatav = Math.random();
+//发送请求内容
+function sendRequest(url,param,callback){
+    currentCallBack = callback;
+    createXmlhttp ();
+	try{
+		xmlhttp.onreadystatechange = processResponse;  //回调方法
+		xmlhttp.open("post",url + ".cgi",true); // true异步
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+		if(!param['mode_name']){
+			var str = "mode_name="+url+"&";
+			str += "nonedata="+nonedatav+"&";
+		}else{
+			var str = '';
+			str += "nonedata="+nonedatav+"&";
+		}
+		for(var i in param){
+			str += i + "=" + encodeURIComponent(param[i]) + "&";
+		}
+		str = str.substring(0,str.length -1);
+		xmlhttp.send(str);
+	}catch(e){
+	//	alert(e);
+	}
+}
+
+function processResponse() {
+	if ( xmlhttp.readyState == 4 ) {
+		if ( xmlhttp.status == 200 ||  xmlhttp.status==0) {
+			var str = xmlhttp.responseText;
+			webdata = eval("("+str+")");
+			if(currentCallBack){
+				currentCallBack(webdata);
+			}
+		}
+	}
+}
+
+//发送请求内容
+function sendRequest1(url,param,callback){
+    currentCallBack = callback;
+    createXmlhttp ();
+	try{
+		//xmlhttp.onreadystatechange = processResponse;  //回调方法
+		xmlhttp.open("post",url + ".cgi",false); // true异步
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+		if(!param['mode_name']){
+			var str = "mode_name="+url+"&";
+			str += "nonedata="+nonedatav+"&";
+		}else{
+			var str = '';
+			str += "nonedata="+nonedatav+"&";
+		}
+		for(var i in param){
+			str += i + "=" + encodeURIComponent(param[i]) + "&";
+		}
+		str = str.substring(0,str.length -1);
+		xmlhttp.send(str);
+	}catch(e){
+	//	alert(e);
+	}
+}
+
+function next(){
+	var userName = document.getElementById("username").value;
+	var userPass = document.getElementById("password").value;
+	var userPass1 = document.getElementById("password1").value;
+	var objChk = document.getElementById("agree");
+	var nonedatav = Math.random();
+	var obj1 = new Object();
+	obj1.mode = "save";
+	obj1.current_user_level = "1";
+	if(userName == ''){
+		alert("请输入WiFi名称。");
+		return;
+	}
+	if(userPass == ''){
+		alert("请输入WiFi密码。");
+		return;
+	}
+	if((userPass.length < 8)||(userPass.length > 63)){
+		alert("密码应不少于8位。");
+		return;
+	}
+	if(objChk.checked){
+		obj1.new_password = userPass;
+	}
+	else{
+		obj1.new_password = userPass1;
+	}
+	sendRequest1("/boaform/management_user_set",obj1,function(data){});
+	var obj2 = new Object();
+	obj2.wlanssid = "sxbctvnet-" + userName;
+	obj2.WAPPreShared_text = userPass;
+	sendRequest1("/boaform/wlan_set",obj2,function(data){
+	});
+	addCookie("flag",1,7,"/");
+	addCookie("ssid",obj2.wlanssid,7,"/");
+	addCookie("ssidword",obj2.WAPPreShared_text,7,"/");
+	success();
+}
+
+function set(){
+	var Chk = document.getElementById("agree");
+	if(Chk.checked){
+		document.getElementById("user").style.display = "none";
+	}
+	else{
+		document.getElementById("user").style.display = "";
+	}
+}
+
+function success(){
+	document.getElementById("bg1").style.display = "none";
+	document.getElementById("bg2").style.display = "";
+	var wlanssid = getCookieValue("ssid");
+	var WAPPreShared_text = getCookieValue("ssidword");
+	document.getElementById("username2").innerHTML = wlanssid;
+	document.getElementById("password2").innerHTML = WAPPreShared_text;
+}
+</script>
+</head>
+<body onload="init();">
+<table align="center" cellpadding="1" cellspacing="3" id="bg1">
+	<form name="initform" id="initform" action="" method="post">
+		<tr id="toptr1"><td height="67" colspan="4"><div id="top1" style="width:100%;"></div></td></tr>
+		<tr>
+			<td colspan="4" align="center"><p>为了您的安全，建议选择数字和字母混合的密码</p></td>
+		</tr>
+		<tr>
+			<td width="180" align="right">WiFi名称:</td>
+			<td width="10" align="left">
+				<input style="width:60px;" type="text" value="sxbctvnet" class="loginput" disabled="true"/>
+			</td>
+			<td align="left" width="3">-</td>
+			<td width="200" align="left">
+				<input style="width:94px;" type="text" id="username" name="username" maxlength="32" class="loginput" autofocus="autofocus" />
+			</td>
+		</tr>
+		<tr>
+			<td width="120" align="right">WiFi密码:</td>
+			<td width="80" align="left" colspan="3">
+				<input style="width:180px;" type="password" id="password" name="password" maxlength="20"  class="loginput" onkeypress="detectCapsLock(event)" />
+			</td>
+		</tr>
+		<tr id="user">
+			<td width="120" align="right">管理密码:</td>
+			<td width="80" align="left" colspan="3">
+				<input style="width:180px;" type="password" id="password1" name="password1" maxlength="20"  class="loginput" onkeypress="detectCapsLock(event)" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center">
+				<input type="checkbox" id="agree" checked="none" onclick="set();">
+				<label for="agree">将WiFi密码同时设为路由器管理密码</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center">
+				<div id="same">WiFi密码与路由器管理密码相同，无需记忆多个密码</div>
+			</td>
+		</tr>
+		<tr>
+			<td width="500" colspan="4" align="center">
+			<input type="button" name="Submit1" id="Submit1" value="确定" onclick="next();" />
+			</td>
+		</tr>
+	</form>
+</table>
+<table align="center" cellpadding="1" cellspacing="3" id="bg2">
+	<form name="initform2" id="initform2" action="" method="post">
+		<tr id="toptr2"><td height="67" colspan="4"><div id="top2" style="width:100%;"></div></td></tr>
+		<tr>
+			<td align="center" colspan="2"><h3>恭喜您完成路由设置，请重新连接WiFi！</h3></td>
+		</tr>
+		<tr>
+			<td width="100" align="right">您的无线名称:</td>
+			<td width="100" align="left">
+				<div><span id="username2"></span></div>
+			</td>
+		</tr>
+		<tr>
+			<td width="100" align="right">您的无线密码:</td>
+			<td width="100" align="left" >
+				<div><span id="password2"></span></div>
+			</td>
+		</tr>
+		<tr>
+			<td width="500" colspan="2" align="center">
+			<input type="button" name="Submit2" id="Submit2" value="进入路由器管理后台" onclick="window.location.href='./index_login_shaanxi.html'" />
+			</td>
+		</tr>
+	</form>
+</table>
+</body>
+</html>

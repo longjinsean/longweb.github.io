@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="Pragma" content="no-cache">   
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>恢复出厂设置</title>
+<style type="text/css">
+body{margin:0;padding:0;margin-top:5px;margin-left:50px;font-size:12px;}
+td{color:#000;font-size:12px;}
+td{font-family:verdana,"宋体";}
+</style>
+<script>
+function init_reset_page(){
+	var name = escape("flag");
+	var path = "/";
+	var expires = new Date(0);
+	path = path == "" ? "" : ";path=" + path;
+	document.cookie = name + "="+ ";expires=" + expires.toUTCString() + path;
+	sendRequest("/boaform/onu_restore_factory_long","none:noned",function(datax){
+		//alert(datax);
+		document.getElementById("result_info").innerHTML = datax;
+		if(datax == "SUCCESS"){
+			//document.getElementById("result_info").innerHTML = "执行操作成功。";
+			document.getElementById("result_info").innerHTML = "SUCCESS";
+		}
+		});
+}
+ //创建AJAX引擎
+var xmlhttp = null;
+function createXmlhttp () {
+ if (window.XMLHttpRequest) {
+     //针对FireFox，Mozillar，Opera，Safari，IE7，IE8
+//	alert(navigator.userAgent);
+     xmlhttp = new XMLHttpRequest();
+     //针对某些特定版本的mozillar浏览器的BUG进行修正
+     if (xmlhttp.overrideMimeType) {
+            xmlhttp.overrideMimeType("text/xml");
+        }
+ 	}else if (window.ActiveXObject) {
+         //针对IE6，IE5.5，IE5
+        //两个可以用于创建XMLHTTPRequest对象的控件名称，保存在一个js的数组中
+        //排在前面的版本较新
+        var activexName = ["MSXML2.XMLHTTP","Microsoft.XMLHTTP"];
+        for (var i = 0; i < activexName.length; i++) {
+            try{
+                //取出一个控件名进行创建，如果创建成功就终止循环
+                //如果创建失败，回抛出异常，然后可以继续循环，继续尝试创建
+                xmlhttp = new ActiveXObject(activexName[i]);
+                break;
+            } catch(e){
+			//	alert(e);
+            }
+        }
+    }
+}
+var currentCallBack = null;
+var nonedatav = Math.random();
+//发送请求内容
+function sendRequest(url,param,callback){
+    currentCallBack = callback;
+    createXmlhttp ();
+	try{
+		xmlhttp.onreadystatechange = processResponse;  //回调方法
+		xmlhttp.open("post",url + ".cgi",true); // true异步
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+		if(!param['mode_name']){
+			var str = "mode_name="+url+"&";
+			str += "nonedata="+nonedatav+"&";
+		}else{
+			var str = '';
+			str += "nonedata="+nonedatav+"&";
+		}
+		for(var i in param){
+			str += i + "=" + encodeURIComponent(param[i]) + "&";
+		}
+		str = str.substring(0,str.length -1);
+		xmlhttp.send(str);
+	}catch(e){
+	//	alert(e);
+	}
+}
+function processResponse() {
+	if ( xmlhttp.readyState == 4 ) {
+		if ( xmlhttp.status == 200 ||  xmlhttp.status==0) {
+			var str = xmlhttp.responseText;
+			var webdata = eval("("+str+")");
+			if(currentCallBack){
+				currentCallBack(webdata);
+			}
+		}
+	}
+}
+
+</script>
+</head>
+
+<body onload="init_reset_page();">
+	<div id="result_info"></div>
+</body>
+</html>

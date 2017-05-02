@@ -1,0 +1,1498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head> 
+<meta name="renderer" content="webkit|ie_comp|ie-stand" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Pragma" content="no-cache">   
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title></title>
+<link type="text/css" href="./css/style.css?v=time" rel="stylesheet"/>
+<link type="text/css" href="./css/nc.css?v=time" rel="stylesheet"/>
+<script type="text/javascript" src="./config/config.js?v=time"></script>
+<script type="text/javascript" src="./script/menucustomize.js?v=time"></script>
+<script type="text/javascript" src="./config/language_cn.js?v=time"></script>
+<script type="text/javascript" src="./script/debug.js?v=time"></script>
+<script type="text/javascript" src="./script/logic.js?v=time"></script>
+<script type="text/javascript" src="./script/nc.js?v=time"></script>
+<style type="text/css">
+/*----------------------style.css-----------------------------*/
+body,div,span,td,label,a{
+	font-size:14px;
+  /*font-family:Tahoma,Verdana,sans-serif;
+	font-family:'宋体';*/
+	font-family:"Microsoft Yahei",sans-serif;
+	color:#000000;
+}
+/*lilin*/
+body{
+	margin:0px;	
+	/*background:#e2e2e2;*/
+	color:#000000;
+}
+div{
+	position:relative;
+}
+/*lilin*/
+.f_top{
+	height:196px;
+	width:1008px;
+	margin:auto;
+	/*background:#2c55a7;*/
+	/*background:url('../images/top_right_bg.gif');*/
+	/*border-bottom:solid 1px #2c55a7;*/
+}
+div#logo_after{
+	height:53px;
+	width:106px;
+	/*background:url("../images/top_middle.jpg") no-repeat;	*/
+	float:left;
+}
+/*
+div#logo{
+	height:60px;
+	width:186px;
+	background:url("./images/logo_netis.png") no-repeat center center;	
+	float:left;
+}
+*/
+/*lilin*/
+#logo{
+	height:117px;
+	width:808px;
+	background:url("../images/framelogo.jpg") no-repeat center center;
+}
+/*
+*html div#logo
+{	
+	height:25px;
+	margin:18px 0 0 4px;
+	_background:none; 
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='./images/framelogo.jpg'); 
+}
+*/
+.f_main_bg{
+	margin:auto;
+	width:1008px;
+}
+.f_main{
+	min-height:550px;
+	width:1000px;
+	margin:auto;
+	background:#ececec;
+	float:left;
+}
+.f_left{
+	float:left;
+	height:550px;
+	width:172px;
+	/*background:#ececec;*/
+}
+.f_left span{
+	display:block;
+	height:25px;
+	line-height:25px;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+}
+div#menu_top{
+	width:172px;
+	height:18px;
+	/*background:url('../images/left_01.jpg') no-repeat;	*/
+}
+div#menu_layer{
+	width:172px;
+	/*background:url('../images/left_02.jpg') repeat-y;		*/
+}
+div#menu_bottom{
+	width:172px;
+	height:20px;
+	/*background:url('../images/left_03.jpg') no-repeat;	*/	
+}
+.f_center{
+	float:left;
+	min-height:550px;
+	width:648px;
+	padding-top:3px;
+	background:white;
+	/*border-top:solid 2px #539b35;*/
+	/*border-bottom:solid 1px #539b35;*/
+}
+*html .f_center{ 
+	height:550px;
+}
+.f_right{
+	float:left;
+	min-height:550px;
+	width:178px;
+	/*background:#ececec;*/
+}
+.f_right span{
+	display:block;
+	height:25px;
+	line-height:25px;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+}
+div#help_top{
+	float:right;
+	width:166px;
+	height:18px;
+	_background:url('../images/left_031.jpg') no-repeat;	
+}
+div#help_layer{
+	float:right;
+/*	_background:url('../images/left_021.jpg') repeat-y;	*/
+	width:166px;
+}
+div#help_bottom{
+	float:right;
+	width:166px;
+	height:18px;
+	/*background:url('../images/left_011.jpg') no-repeat;	*/
+}
+/*lilin*/
+.f_bottom{
+	height:25px;
+	width:1008px;
+	clear:left;
+	margin:auto;
+	background:#ececec;
+	/*border-top:solid 1px #2c55a7;*/
+}
+/*lilin*/
+.f_bottom_border{
+	width:100%;
+	_height:6px;
+	background:#d1d1d1;
+	text-align:center;
+}
+.f_bottom span{
+	display:block;
+	position:absolute;
+	right:10px;
+	top:10px;
+	color:#f3f3f3;
+}
+.m_menu{
+	width:100%;
+	min-height:300px;
+	margin:auto;
+	color:#000000;
+}
+.menu_parent{
+	width:172px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	background:url("../images/bg_leftmenu.gif") no-repeat;
+	cursor:pointer;
+	float:left;
+}
+.m_p_img{
+	height:10px;
+	width:10px;
+	margin:7px 2px 0 15px;
+	float:left;
+}
+*html .m_p_img{margin-left:8px;}
+.m_no{
+	background:url('../images/icon_no.gif') no-repeat;
+}
+.m_jia{
+	background:url('../images/icon_jia.gif') no-repeat;
+}
+.m_now{
+	background:url('../images/icon_now.gif') no-repeat;
+}
+.m_jian{
+	background:url('../images/icon_jian.gif') no-repeat;
+}
+.m_p_txt{
+	float:left;
+	font-weight:bold;
+}
+.m_c_img{
+	height:10px;
+	width:10px;
+	margin:5px 2px 0 30px;
+	float:left;
+}
+*html .m_c_img{ margin-left:15px;}
+.m_c_txt{
+	float:left;
+}
+.menu_child_panel{
+	width:172px;
+	display:none;
+	float:left;
+}
+.menu_child{
+	width:172px;	
+	height:18px;
+	line-height:18px;
+	text-align:center;
+	cursor:pointer;
+	color:#000000;
+	float:left;
+}
+.menu_child_checked{
+	width:172px;	
+	height:18px;
+	line-height:18px;
+	text-align:center;
+	cursor:pointer;
+	color:#333;
+	float:left;
+}
+.f_menu_top{
+	float:left;
+	width:640px;
+	padding: 0 4px;
+	height:50px;
+	border:1px solid #333;
+}
+/* ----------------------nc.css------------------------------*/
+.df_panel{
+	float:left;
+	width:78.5%;
+	padding:0 4px 0 220px;
+}
+.df_panel_ie{
+	width:78.5%;
+	padding:0 4px 0 220px;
+}
+
+.df_panel_title{
+	width:630px;
+	float:left;
+	height:25px;
+	line-height:25px;
+	padding:0 0 0 10px;
+	font-weight:bold;
+	border-bottom:solid 1px #539b35;
+	color:#539b35;
+}
+
+.df_panel_titlea{
+	width:99.5%;
+	float:left;
+	height:25px;
+	line-height:25px;
+	padding:0 0 0 10px;
+	/*font-weight:bold;*/
+	/*border-bottom:solid 1px #539b35;
+	color:#539b35;*/
+}
+
+.df_panel_content{
+	width:100%;
+	float:left;
+}
+.df_tag_ie{
+	width:99.5%;
+	min-height:25px;	
+	margin-bottom:1px;
+	background:#f3f8fd;
+	border-bottom:solid 1px #b3d2ef;
+}
+.df_tag_iewhite{
+	width:639px;
+	min-height:25px;	
+	margin-bottom:1px;
+	background:#ffffff;
+	border-bottom:solid 1px #ffffff;
+}
+.df_tag{
+	float:left;
+	width:99.5%;
+	min-height:25px;	
+	margin-bottom:1px;
+	background:#f7f7f7;
+	border-bottom:solid 1px #e2e2e2;
+}
+.df_tagwhite{
+	float:left;
+	width:100%;
+	min-height:25px;	
+	margin-bottom:1px;
+	background:#ffffff;
+	border-bottom:solid 1px #ffffff;
+}
+.df_tagone{
+	float:left;
+	width:100%;
+	min-height:25px;	
+	margin-bottom:1px;
+	background:#ffffff;
+	border-bottom:solid 0px #e2e2e2;
+}
+.tr_bgcolor{
+	/*background:#c8e7fb;*/
+	background:#e5f8f5;
+	width:640px;
+}
+
+.cell_display{
+	/*background:#c8e7fb;*/
+	display: none;
+}
+
+.tr_bgcolornormal{
+	background:#f7f7f7;
+}
+.df_btn_tag{
+	clear:both;
+	min-height:30px;	
+	line-height:30px;	
+	margin-bottom:1px;
+	background:#f7f7f7;
+	/*border-bottom:solid 1px #b3d2ef;*/
+	padding-left: 165px;
+}
+.df_btn_tagone{
+	clear:both;
+	float:right;
+	min-height:30px;
+	max-height:30px;	
+	line-height:30px;	
+	margin-bottom:1px;
+}
+*html .df_btn_tag{ float:left; clear:none;}
+.df_btn_tag_ie{
+	clear:both;
+	min-height:30px;
+	line-height:30px;	
+	margin-bottom:1px;
+	/*background:#f7f7f7;*/
+	width:475px;
+	_padding-left: 165px;
+}
+.df_tab_tag{
+	float:left;
+	width:99.5%;
+	/*border:solid 1px #b3d2ef;*/
+	background:#f7f7f7;
+}
+.df_tab{
+	width:640px;
+}
+.df_tabc{
+	width:100%;
+	border-collapse:collapse; 
+	color:#000000;
+}
+.df_tabdiv{  
+	width:100%;
+	min-height:25px;
+	max-height:350px;
+	overflow-y:auto;
+}
+.df_tabdiv1{  
+	border:1px solid;
+	width:100%;
+	min-height:25px;
+	max-height:350px;
+	overflow-y:auto;
+	height:300px;
+	width:640px;
+}
+.df_thead{
+	text-align:center;
+}
+.df_theadd{
+	text-align:center;
+}
+.df_theadd th{
+	text-align:center;
+	color:#000000;
+	border:1px solid #D2D2D2;
+	background:#e7e7e7;
+	cellspacing:0px;
+	border-collapse:collapse;
+	font-size:14px;
+	/*width:28%;*/
+}
+.df_theadd td{
+	text-align:left;
+	padding:0;
+	border:1px solid #D2D2D2;
+	cellspacing:0px;
+	border-collapse:collapse;
+	/*width:72%;*/
+}
+.df_theadc{
+	text-align:left;
+}
+.df_theadc th{
+	text-align:left;
+	color:#000000;
+	border:1px solid #D2D2D2;
+	background:#e7e7e7;
+	cellspacing:0px;
+	border-collapse:collapse;
+	font-size:14px;
+	width:28%;
+}
+.df_theadc td{
+	text-align:left;
+	padding:0;
+	border:1px solid #D2D2D2;
+	cellspacing:0px;
+	border-collapse:collapse;
+	width:72%;
+}
+.df_thead td{
+	background:#ececec;
+}
+.df_tbody{
+	text-align:center;
+}
+.df_tbodyd{
+	text-align:center;
+}
+.df_tbodyd td{
+/*	background:#f7f7f7;*/
+	text-align:left;
+	padding:0;
+	border:1px solid #D2D2D2;
+	cellspacing:0px;
+	border-collapse:collapse;
+}
+.df_tbody td{
+	background:#f3f8fd;
+}
+.df_tfoot{
+	background: none repeat scroll 0 0 #F7F7F7;
+	width:619px;
+	height:25px;
+	line-height:25px;
+	padding:0 10px 0 10px;
+	margin:1px;
+}
+.df_tfootthree{
+	background:#e5f8f5;
+	width:619px;
+	height:25px;
+	line-height:25px;
+	padding:0 10px 0 10px;
+	margin:1px;
+}
+.tab_del_mod
+{
+	width:40px;
+}
+.tab_mod_btn{
+	float:left;
+	background:url("../images/edit.gif");
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	margin-left:5px;
+}
+*html .tab_mod_btn
+{
+	margin-left:2px;
+}
+.tab_link_btn{
+	float:left;
+	background:url("../images/link.gif");
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	margin-left:5px;
+}
+*html .tab_link_btn{ margin-left:2px;}
+.tab_del_btn{
+/*	background:url("../images/del.gif");*/
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	margin-left:20px;
+}
+*html .tab_del_btn{ margin-left:10px;}
+.tab_del_btn1{
+	background:url("../images/del.gif");
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	margin-left:20px;
+}
+*html .tab_del_btn1{ margin-left:10px;}
+.tab_can_btn{
+	background:url("../images/back.gif");
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	margin-left:25px;
+}
+
+.tab_link{
+	cursor:pointer;
+	color:#0000ff;
+}
+
+*html .tab_can_btn{ margin-left:10px;}
+*+html .tab_can_btn{ margin-left:10px;}
+.df_btn{
+    background-color: #F2F2F2;
+    border: 1px solid #D2D2D2;
+    color: #000000;
+    cursor: pointer;
+	min-width:85px;
+	margin:0 5px 0 5px;
+	font-size:14px;
+	padding:2px;
+	font-family: "Microsoft Yahei",sans-serif;
+	height:23px;
+}
+.displayhide{
+	display: none;
+	background:#e5f8f5;
+}
+.displayshow{
+	display: block;
+	background:#e5f8f5;
+}
+.df_label{
+	display: block;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    text-align: right;
+    width: 160px;
+	background:#ececec;
+	padding-left:5px;
+	padding-right:5px;
+}
+.df_labelwhite{
+	display: block;
+  float: left;
+  height: 25px;
+  line-height: 25px;
+  text-align: right;
+    width: 160px;
+	background:#ffffff;
+	padding-left:5px;
+	padding-right:5px;
+}
+.df_labelc{
+	display: block;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+    width: 160px;
+	background:#ececec;
+	padding-left:5px;
+	padding-right:5px;
+}
+.df_labelb{
+	display: block;
+  float: left;
+  height: 15px;
+  line-height: 15px;
+  text-align: left;
+	background:#ffffff;
+	padding-left:10px;
+}
+.df_label_two{
+	display: block;
+    float: left;
+    height: 50px;
+    line-height: 25px;
+    text-align: right;
+    width: 160px;
+	background:#ececec;
+	padding-left:5px;
+	padding-right:5px;
+}
+.df_text{
+	border: 1px solid #D2D2D2;
+	margin:1px 1px 1px 2px;
+	height:18px;
+    width: 160px;	
+	float:left;
+	font-family:"Microsoft Yahei",sans-serif;
+}
+.df_text1{
+	border: 1px solid #D2D2D2;
+	margin:1px 1px 1px 2px;
+	height:18px;
+    width: 450px;	
+	float:left;
+	font-family:"Microsoft Yahei",sans-serif;
+}
+.df_text_fire{
+	border: 1px solid #D2D2D2;
+	margin:1px 1px 1px 2px;
+	height:18px;
+	margin-left:2px;
+    width: 160px;	
+}
+.df_time_text{
+	border: 1px solid #D2D2D2;
+	margin:2px;
+    width: 60px;	
+	float:left;
+	font-family:"Microsoft Yahei",sans-serif;
+}
+.text_after{
+	border:1px solid #d2d2d2;
+	margin:2px;
+	width:40px;
+}
+.df_check_panel{
+	float:left;
+	display:none;
+}
+.df_check_layer{
+	position:absolute;
+	left:-10px;
+	top:-25px;
+}
+.df_check_info{
+	min-width:50px;
+	height:20px;
+	line-height:20px;
+	border:solid 1px #ffd700;
+	background:#ffffe1;
+	z-index:5;
+}
+.df_check_p{
+	min-width:50px;
+	height:20px;
+	line-height:20px;
+	background:url("../images/help_b1.jpg") no-repeat;
+	margin-top:-10px;
+}
+.df_radio{
+	float:left;
+}
+.df_textarea{
+	border: 1px solid #D2D2D2;
+	margin:1px 1px 1px 2px;
+/*	height:100px; */
+	line-height:18px; 
+  width: 400px;	
+  height:160px;
+	float:left;
+	overflow-y:auto;
+	resize:none;
+}
+.df_textareasingle{
+	border: 1px solid #D2D2D2;
+	margin:1px 1px 1px 2px;
+/*	height:100px; */
+	line-height:18px; 
+  width: 630px;	
+  height:328px;
+	float:left;
+	overflow-y:auto;
+	resize:none;
+}
+.df_checkbox{
+	float:left;
+	margin:6px 2px 0 5px;
+}
+.df_checkbox_ie{
+    float:left;
+	margin:3px 2px 0 5px;
+}
+.df_two_after{
+	display:block;
+	height:20px;
+	line-height:20px;
+	float:left;
+}
+.df_radio_txt{
+	display:block;
+	height:20px;
+	line-height:20px;
+	float:left;
+	width:65px;
+	word-spacing:-1px;
+}
+.radio_panel{
+	float:left;
+	height:20px;
+	line-height:20px;
+	padding:2px;
+}
+.radio_panel_single{
+	float:left;
+	width:100%;
+	min-height:20px;
+	line-height:20px;
+	padding:2px;
+}
+.radio_panel_line{
+	float:left;
+	min-height:20px;
+	line-height:20px;
+	padding:2px;
+	width:464px;
+}
+*html .radio_panel_line{ width:460px;}
+.two_panel_line{
+	float:left;
+	min-height:20px;
+	line-height:20px;
+	padding:1px;
+	width:464px;
+}
+.df_i_contextone{
+	min-height:25px;
+	line-height:25px;
+	margin:0 10px;
+	/*color:#000000;*/
+	background:#ffffff;
+	/*font-weight:bold;*/
+}
+.df_i_context{
+	min-height:25px;
+	line-height:25px;
+	margin:0 10px;
+	color:#990000;
+}
+.df_labelone{
+  float: left;
+  height: 25px;
+  min-height:25px;
+  line-height: 25px;
+  width: 630px;
+	background:#ececec;
+	padding-left:5px;
+	padding-right:5px;
+}
+.df_context_ie{
+	width:464px;
+	min-height:25px;
+	line-height:25px;
+	padding:0 0 0 5px;
+	background:#f7f7f7;
+}
+.df_contextb_ie{
+	width:464px;
+	min-height:15px;
+	line-height:15px;
+	padding:0 0 0 5px;
+	background:#ffffff;
+}
+.df_context{
+	display:block;
+	float:left;
+	width:464px;
+	min-height:25px;
+	line-height:25px;
+	padding:0 0 0 5px;
+	background:#f7f7f7;
+}
+.df_contextb{
+	display:block;
+	float:left;
+	width:464px;
+	min-height:15px;
+	line-height:15px;
+	padding:0 0 0 5px;
+	background:#ffffff;
+}
+.df_select_ie{
+	border: 1px solid #D2D2D2;
+	margin:2px;
+	background:#f3f3f3;
+	font-size:14px;
+	color:#000000;
+	width:165px;
+	height:20px;
+	float:left;
+	font-family: "Microsoft Yahei",sans-serif;
+}
+.df_select_ie1{
+	border: 1px solid #D2D2D2;
+	margin:2px;
+	background:#f3f3f3;
+	font-size:14px;
+	color:#000000;
+	width:300px;
+	height:20px;
+	float:left;
+	font-family: "Microsoft Yahei",sans-serif;
+	
+}
+.df_select{
+	border: 1px solid #D2D2D2;
+	margin:2px 1px 1px 2px;
+	background:#f3f3f3;
+	font-size:14px;
+	color:#000000;
+	width:163px;
+	height:20px;
+	float:left;
+	font-family:  "Microsoft Yahei",sans-serif;
+}
+.df_select1{
+	border: 1px solid #D2D2D2;
+	margin:2px 1px 1px 2px;
+	background:#f3f3f3;
+	font-size:14px;
+	color:#000000;
+	width:300px;
+	height:20px;
+	float:left;
+	font-family:  "Microsoft Yahei",sans-serif;
+}
+.df_select_tab{
+	border: 1px solid #D2D2D2;
+	margin:2px;
+	background:#f3f3f3;
+	font-size:14px;
+	color:#000000;
+	width:163px;
+	height:20px;
+	font-family:  "Microsoft Yahei",sans-serif;
+}
+.df_after{
+	float:left;
+	margin-left: 5px;
+	_padding:0 5px;
+	min-height:25px;
+	line-height:25px;
+	word-spacing:-2px;
+}
+.df_context_after{
+	min-height:25px;
+	line-height:25px;
+}
+.df_after_two{
+    float: left;
+    line-height: 25px;
+    min-height: 25px;
+}
+.df_after_three{
+	margin-left: 5px;
+	min-height:25px;
+	line-height:25px;
+}
+.df_checkbox_panel{
+	height:25px;
+	line-height:25px;
+	float:left;
+}
+.df_checkbox_label{
+	float:left;
+}
+.df_line{
+	float:left;
+	height:25px;
+	line-height:25px;
+}
+.df_h_tpanel{
+	float:right;
+	width:155px;
+	padding:0 0 0 5px;
+	_background:#8fc7fa;
+	height:20px;
+	line-height:20px;
+	font-weight:bold;
+	border-bottom:solid 1px white;
+	border-top:solid 1px white;
+	margin-bottom:4px;
+}
+.df_h_cpanel{
+	padding:10px;
+	color:#333;
+}
+.df_h_mpanel{
+	position:absolute;
+}
+.df_h_mbtn{
+	font-weight:bold;
+	text-align:right;
+	cursor:pointer;
+}
+.df_h_close{
+	position:absolute;
+	font-weight:bold;
+	width:16px;
+	height:16px;
+/*	background:url("../images/del.gif") no-repeat;	*/
+	right:0px;
+	top:0px;
+	cursor:pointer;
+}
+.more_h_table{
+	border:solid 1px #cfe0f0;
+	background:#f3f3f3;
+}
+.more_h_head{
+	min-width:100px;
+	background:#ececec;
+	font-weight:bold;
+}
+.more_h_content{
+	border-bottom:solid 1px #cfe0f0;
+	text-align:left;
+}
+.more_h_content_after{
+	text-align:left;
+}
+.df_load_tip{
+	height:30px;
+	line-height:30px;
+	padding:3px 0 3px 30px;
+	font-weight:bold;
+	text-align:center;
+}
+.df_load{
+	height:20px;
+	line-height:20px;
+	width:400px;
+	border:solid 1px #d2d2d2;
+	margin:auto;
+	background:white;
+}
+.df_run{
+	width:0px;	
+	background:#B6FECD;
+	height:18px;
+	line-height:18px;
+	margin:1px;
+	text-align:center;
+}
+.df_math{
+	position:absolute;
+	width:398px;
+	top:1px;
+	left:1px;
+	height:18px;
+	line-height:18px;
+	text-align:center;
+	color:#333;
+}
+.df_lock_bg{
+	position:absolute;
+	left:0px;
+	top:0px;
+	background:#333;
+	opacity:0.3;
+	filter:alpha(opacity=20);
+	z-index:100;
+	display:none;
+}
+.df_lock_load{
+	position:absolute;
+	min-width:180px;
+	padding:20px 5px 20px 5px;
+	background:#f3f3f3;
+	border:solid 1px #999;
+	z-index:200;
+	display:none;
+	text-align:center;
+	font-size:14px;
+	color:#333;
+}
+.txt_more{
+	float:left;
+	height:25px;
+	line-height:25px;
+}
+.txt_two{
+	float:left;
+	display:block;
+	height:20px;
+	line-height:20px;
+}
+.df_limit_line{
+    display:block;
+    float:left;
+    height:25px;
+    line-height:25px;
+    width:10px;
+    text-align:center;
+}
+.df_con{
+    /*display:block;*/
+    float:left;
+    min-width:100px;
+    min-height:25px;
+    line-height:25px;
+    padding:0 0 0 5px;
+    background:#f3f8fd;
+    width: 100px;
+}
+.df_con_after{
+    /*display:block;*/
+    float:left;
+    width:200px;
+    min-height:25px;
+    line-height:25px;
+    padding:0 0 0 5px;
+}
+.df_page_size_btn{
+    padding:1px;
+    margin:2px 30px 2px 2px;
+    float:left;
+    background-color: #F2F2F2;
+    border: 1px solid #CBCBCB;
+    color: #7A7A7A;
+	font-size:14px;
+	font-family:"Microsoft Yahei",sans-serif;
+	height:20px;
+}
+.df_page_btn1{
+	text-decoration:underline;
+    font-size:14px;
+    width:25px;
+	height:20px;
+    padding:1px;
+    margin:2px;
+    float:left;
+    border: 0px;
+	background:url("../images/first.png") no-repeat center;
+}
+.df_page_btn2{
+	text-decoration:underline;
+    font-size:14px;
+	height:20px;
+    width:25px;
+    padding:1px;
+    margin:2px;
+    float:left;
+    border: 0px;
+	background:url("../images/pre.png") no-repeat center;
+}
+.df_page_btn3{
+	text-decoration:underline;
+    font-size:14px;
+    width:25px;
+	height:20px;
+    padding:1px;
+    margin:2px;
+    float:left;
+    border: 0px;
+	background:url("../images/nextt.png") no-repeat center;
+}
+.df_page_btn4{
+	text-decoration:underline;
+    font-size:14px;
+    width:25px;
+	height:20px;
+    padding:1px;
+    margin:2px;
+    float:left;
+    border: 0px;
+	background:url("../images/lastt.png") no-repeat center;
+}
+*html .df_page_btn1
+{
+	_background:none; 
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='../images/first.png'); 
+}
+*html .df_page_btn2
+{
+	_background:none; 
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='../images/pre.png'); 
+}
+*html .df_page_btn3
+{
+	_background:none; 
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='../images/nextt.png'); 
+}
+*html .df_page_btn4
+{
+	_background:none; 
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='../images/lastt.png'); 
+}
+.df_page_size_set{
+    margin:2px 2px 2px 2px;
+    width:20px;
+	height:15px;
+	border: 1px solid #D2D2D2;
+    float:left;
+}
+.df_page_size_label{
+    float:left;
+}
+.df_diag{
+	min-height:170px;
+	width:580px;
+	float:left;
+	border:1px dashed #d2d2d2;
+	word-wrap:break-word;
+}
+.df_diag_ie{
+	height:170px;
+	width:560px;
+	float:left;
+	border:1px dashed #d2d2d2;
+	word-wrap:break-word;
+	_margin:20px 0 0 10px;
+}
+/*--------------------------------------------------- */
+
+.LocationDisplay{
+	font-family:"SimSun";
+	font-size:36px;
+	font-weight:bold;
+	color:#FFFFFF;
+}
+.GatewayName{
+	font-family:"SimSun";
+	font-size:14px;
+	font-weight:bold;
+	color:#FFFFFF;
+}
+.GatewayType{
+	font-family:"SimSun";
+	font-size:14px;
+	font-weight:bold;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+.welcom{
+	font-family:"SimSun";
+	font-size:14px;
+	color:#00399E;
+	font-weight:bold;
+}
+.logout{
+	font-family:"SimSun";
+	font-size:14px;
+	color:#0436A5;
+	font-weight:bold;
+	text-align:center;
+	text-decoration:none;
+	cursor:pointer;
+}
+.Menu_L1_Link{
+	font-family:"SimSun";
+	font-size:16px;
+	font-weight:bold;
+	color:#000000;
+	text-decoration:none;
+	text-align:center;
+	letter-spacing:1px;
+	cursor:pointer;
+	width:92px;
+	height:26px;
+	background:url("./images/back_button.jpg") no-repeat;
+}
+.Menu_L1_Active{
+	font-family:"SimSun";
+	font-size:16px;
+	font-weight:bold;
+	color:#ffffff;
+	text-decoration:none;
+	text-align:center;
+	letter-spacing:1px;
+	cursor:pointer;
+	width:92px;
+	height:26px;
+	background:url("./images/selected_button.jpg") no-repeat;
+}
+table,tr,td{
+	margin:0;
+	padding:0;
+	border:0;
+	border-collapse:collapse;
+}
+ul,li{
+	margin:0;
+	padding:0;
+}
+A:link{TEXT-DECORATION:NONE;}
+.Menu_L2_Link{
+	font-family:"SimSun";
+	font-size:14px;
+	color:#000000;
+	text-decoration:none;
+	text-align:center;
+	float:left;
+	width:100px;
+	height:28px;
+	cursor:pointer;
+	list-style-type:none;
+}
+.Menu_L2_Active{
+	font-family:"SimSun";
+	font-size:14px;
+	color:#ffffff;
+	text-decoration:none;
+	text-align:center;
+	float:left;
+	width:100px;
+	height:28px;
+	cursor:pointer;
+	list-style-type:none;
+/*	font-weight:bold;*/
+}
+.Item_L2{
+	font-family:"SimSun";
+	font-size:14px;
+	font-weight:bold;
+	color:#ffffff;
+	text-decoration:none;
+	text-align:right;
+	height:30px;
+	line-height:30px;
+	background:#ef8218;
+	cursor:pointer;
+	border-bottom:1px solid #d1d1d1;
+	width:204px;
+	valign:middle;
+	/*padding-right:6px;*/
+}
+.Item_L1{
+	cursor:pointer;
+	font-family:"SimSun";
+	font-size:14px;
+	font-weight:bold;
+	color:#ffffff;
+	text-decoration:none;
+	text-align:right;
+	height:30px;
+	line-height:30px;
+	background:#427594;
+	border-bottom:1px solid #d1d1d1;
+	width:100%;
+}
+
+.Item_NONE{
+	background:#d1d1d1;
+}
+
+.menu_two_table{
+	margin-top:7px;
+	text-align:center;
+}
+
+.color_black{
+	color:#000000;
+}
+
+.f_bottom_border{
+	width:100%;
+	font-family:"SimSun";
+	h_eight:6px;
+	background:#d1d1d1;
+	text-align:center;
+}
+
+.f_top{
+	height:196px;
+	width:1008px;
+	margin:auto;
+	/*background:#2c55a7;*/
+	/*background:url('../images/top_right_bg.gif');*/
+	/*border-bottom:solid 1px #2c55a7;*/
+}
+
+.f_bottom{
+	height:25px;
+	width:1008px;
+	clear:left;
+	margin:auto;
+	background:#ececec;
+	/*border-top:solid 1px #2c55a7;*/
+}
+
+.f_main_bg{
+	margin:auto;
+	width:1008px;
+}
+
+</style>
+<script>
+var eventID; 
+var currentMousePosition1;//记录鼠标坐标  
+var currentMousePosition2;   
+var currentSecond = 0; 
+
+function init()
+{
+	currentMousePosition1 = "";  
+  currentMousePosition2 = "";  
+	eventID = setInterval(CheckTime,1000);
+}
+
+function mousePos(e)
+{  
+   var x,y;  
+   var e = e||window.event;  
+   return {   
+	   x:e.clientX,  
+       y:e.clientY
+   };  
+};  
+
+function GetXYPosition(e)
+{  
+  currentMousePosition2 = mousePos(e).x+','+mousePos(e).y;
+};  
+function CheckTime()
+{  
+    idle_time_increase();
+    if(idle_time_get()>300){  
+        clearInterval(eventID);  
+        alert("您已超时，请重新登录！");
+        log_out();
+		//window.location.replace("/index.html");
+    }   
+}
+	
+</script>
+</head>
+<body onLoad="init()">
+<div id="content" >
+<div class="f_top">
+	<table style="border-collapse:collapse;width:100%;">
+		<tr>
+			<td id="logo" style="position:relative;" width="1008" colspan="3" height="117" border="0" cellpadding="0" cellspacing="0" bgcolor="#539b35"  background="../images/framelogo.jpg">
+				<div style="position:absolute;top:99px;bottom:0px;right:25px;padding:0px;">
+					<span class="welcom" id="welcomyou">欢迎你！&nbsp;&nbsp;&nbsp;</span>
+					<span class="logout" id="logout" onclick="log_out();">退出</span>
+				</div>
+				</td>
+		</tr>
+		<tr>
+			<td width="20.2%" rowspan="3" align="center" bgcolor="#EF8218" class="LocationDisplay" id="LocationDisplay">状态</td>	
+			<td height="25" width="53%" id="gatewayname" bgcolor="#427594" align="right" class="GatewayName">网关名称：HGU B2 型家庭网关&nbsp;</td>
+			<td height="25" width="26.8%" id="gatewaytype" bgcolor="#EF8218" align="center" class="GatewayType"></td>
+		</tr>
+		<tr height="26">
+			<td colspan="2" height="26" valign="bottom" bgcolor="#EF8218" style="border-collapse:collapse;margin:0;padding:0;border:0;" >
+				<div id="menu_layer1" style="width:100%;height:26px;">
+					<!--<table>
+						<tr>
+							<td class="Menu_L1_Active">状态</td>	
+							<td class="Menu_L1_Link">网络</td>
+							<td class="Menu_L1_Link">安全</td>
+							<td class="Menu_L1_Link">应用</td>
+							<td class="Menu_L1_Link">管理</td>
+							<td class="Menu_L1_Link">诊断</td>
+							<td background="./images_1/back_button.jpg" class="Menu_L1_Link">帮助</td>
+						</tr>	
+					</table>-->
+				</div> 
+			</td>	
+		</tr>
+		<tr>
+			<td colspan="2" height="28" bgcolor="#427594" id="MenuArea_L2">
+				<div id="menu_layer2" style="width:100%;height:28px;margin-top:7px;">
+					<!--<table>
+						<tr>
+							<td class="Menu_L2_Active">设备信息<strong class="color_black">|</strong></td>	
+							<td class="Menu_L2_Link">网络侧信息<strong>|</strong></td>
+							<td class="Menu_L2_Link">用户侧信息<strong>|</strong></td>
+							<td class="Menu_L2_Link">语音信息<strong>|</strong></td>
+						</tr>	
+					</table> -->
+				<!--	<ul style="margin-top:5px;text-align:center;">
+						<li class="Menu_L2_Active"><a style="color:#FFFFFF;" href="">设备信息<strong>|</strong></a></li>	
+						<li class="Menu_L2_Link"><a style="color:#000000;" href="">网络侧信息<strong>|</strong></a></li>
+						<li class="Menu_L2_Link"><a style="color:#000000;" href="">用户侧信息<strong>|</strong></a></li>	
+						<li class="Menu_L2_Link"><a style="color:#000000;" href="">语音信息<strong>|</strong></a></li>		
+					</ul> -->
+				</div>
+			</td>	
+		</tr>
+	</table>
+</div>
+<div id="f_main_bg" class="f_main_bg">
+	<table style="border-collapse:collapse;width:100%;" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<!--<td width="164" height="600" valign="top" class="Item_NONE">-->
+		<!--	<td width="164" height="600" valign="top" background="../images/panel3.gif" class="Item_NONE" >  -->
+				<!--<div id="menu_layer3" height="600" bgcolor="#ef8218" style="width:100%;margin-top:15px !important;padding:0;border:0;">-->
+					<!--<table>
+						<tr>
+							<td class="Item_L1" >三级菜单</td>
+						</tr>
+						<tr>
+							<td class="Item_L2" >设备基本信息</td>	
+						</tr>
+						<tr>
+							<td class="Item_L2" >快速配置</td>	
+						</tr>
+						<tr>
+							<td class="Item_L2" >三级菜单3</td>	
+						</tr>
+							
+					</table> -->
+				<!--</div>-->
+			</td>
+			<td bgcolor="white" height="600" width="644" style="background-image:url(./images/menu3.png); background-repeat:repeat-y;"><div id="content_layer" style="min-height:600px;height:auto !important;margin-top:15px !important;height:100px;">正文部分</div></td>
+		</tr>
+	</table>
+<!--<div id="f_main" class="f_main">
+	<div class="f_left">
+		<span id="version_v"></span>
+		<div id="menu_top"></div>
+		<div id="menu_layer"></div>
+		<div id="menu_bottom"></div>
+	</div>
+	<div class="f_center" id="content_layer"></div>
+	<div class="f_right">
+		<span id="version_n"></span>
+		<div id="help_top"></div>
+		<div id="help_layer"></div>
+		<div id="help_bottom"></div>
+	</div>
+</div> -->
+</div>
+
+<div class="f_bottom">
+	<table style="border-collapse:collapse;width:100%;" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="164" height="25" bgcolor="#EF8218"></td>
+			<td bgcolor="#427594" height="25" width="644"></td>
+		</tr>
+	</table>
+</div>
+<div class="f_bottom_border"> </div>
+<div id="request_layer" style="display:none;position:absolute;"></div>
+<div id="response_layer" style="display:none;position:absolute;"></div> 
+</div>
+<input type="hidden" name="userlevel" id="userlevel" value="1"/>
+</body>
+<script type="text/javascript" src="./script/action.js?v=time"></script>
+<script type="text/javascript" src="./script/Sta_Overview_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Sta_WAN_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Sta_LAN_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Sta_Voice_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Sta_Management_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Sta_telligent_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Net_Network_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Net_LAN_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Net_WLAN_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Net_Management_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Net_QoS_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Net_NTP_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Net_Route_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Net_UsersLimit_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Secu_WAN_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Secu_Firewall_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Secu_MAC_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Secu_port_action.js?v=time"></script>
+<script type="text/javascript" src="./script/App_DDNS_action.js?v=time"></script>
+<script type="text/javascript" src="./script/App_NAT_action.js?v=time"></script>
+<script type="text/javascript" src="./script/App_UPnP_action.js?v=time"></script>
+<script type="text/javascript" src="./script/App_Voice_action.js?v=time"></script>
+<script type="text/javascript" src="./script/App_IGMP_action.js?v=time"></script>
+<script type="text/javascript" src="./script/App_Application_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Mng_User_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Mng_Device_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Mng_Log_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Mng_Maintain_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Dia_Diagnose_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Dia_Busdiagnose_action.js?v=time"></script>
+<script type="text/javascript" src="./script/Mng_Upgrade_action.js?v=time"></script>
+<script type="text/javascript" src="./script/menu.js?v=time"></script>
+<script type="text/javascript" src="./script/init.js?v=time"></script>
+</html>

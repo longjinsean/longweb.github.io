@@ -1,0 +1,844 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<title></title>
+<link type="text/css" href="css/styleupgrade.css" rel="stylesheet"/>
+<script type="text/javascript" src="./script/nc.js?v=time"></script>
+<style type="text/css">
+.bc1{
+background-color:#E9F0FA;
+height="32"
+}
+
+.bc2{
+background-color:#F3F5F8;
+height="32"
+}
+
+.tb{
+margin-left:16px;
+}
+
+* {
+	margin:0px;
+	padding:0px;
+	font-size:14px
+}
+.off {
+	display:none
+}
+.on {
+	display:block
+}
+.button {	
+	background: #2f94db; 
+	font-size: 14px; 
+	color: #FFF; 
+	padding: 2px 17px; 
+	border:1px solid #1884d0; border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+	-moz-border-radius: 4px; 
+	cursor:pointer; margin:0 20px; 
+	text-align:center; 
+	width:auto; 
+	overflow:visible;
+}
+.warn {
+	
+}
+.list_btn {
+	cursor:pointer
+}
+.btn_layer {
+}
+.btn_layer center {
+	height:30px;
+	line-height:30px;
+	padding:10px
+}
+dl dd p {
+	color:red;
+	height:40px;
+	line-height:40px
+}
+.input_text {
+	border:solid 1px #ccc
+}
+
+div#lock_div {
+	position:absolute;
+	background-color:#666666;
+	width:100%;
+	top:0;
+	left:0;
+	filter:Alpha(opacity=30);
+	-moz-opacity:0.3;
+	opacity: 0.3 !important;
+	z-index:2000;
+	display:none;
+}
+ 
+
+
+/*整体布局控制*/
+html {
+zoom: expression(function(ele) {
+ele.style.zoom = "1";
+document.execCommand("BackgroundImageCache", false, true);
+}
+(this));
+}
+body {
+	margin:0px;
+	padding:0px;
+	font-family:"微软雅黑", Tahoma, Verdana, sans-serif;
+}
+#background_layer {
+	margin:auto;
+	width:980px;
+	position:relative;
+	
+}
+#top_layer {
+	height:90px;
+}
+
+
+/*页面表单显示控制*/
+#content_layer {
+	float:left;
+	width:780px;
+	text-align:left;
+	border:solid 1px #8bafd3;
+	border-top:none;
+	margin-top:0px !important;
+	margin-top:-14px;
+	padding-top:15px;
+	;
+}
+.content_layer {
+	float:left;
+	width:780px;
+	text-align:left;
+	border:solid 1px #8bafd3;
+	border-top:none;
+	margin-top:0px !important;
+	margin-top:-14px;
+	padding-top:15px;
+}
+.content_layer_children {
+}
+.frame_tab_layer {
+	font-size:14px;
+	padding:0 9px 9px;
+}
+.frame_tab_layer dl {
+	overflow:hidden;
+	padding:0;
+}
+.frame_tab_layer dd{
+	padding:0;
+}
+.frame_tab_layer dd table {
+	width:100%;
+}
+.frame_tab_layer dd table tr:hover {
+}
+.frame_tab_layer dd table th {
+	color:#002a70;
+	font-weight:100;
+	width:28%;
+	text-align:right;
+	padding: 0px 0px;
+	border-bottom:1px dashed #E0E0E0;
+}
+.frame_tab_layer dd table td {
+	color:#444;
+	padding: 8px 0px;
+	border-bottom:1px dashed #E0E0E0;
+}
+.frame_head {
+  width:757px;
+	padding:3px 10px;
+	font-weight:700;
+	color:#002a70;
+	border-bottom:solid 2px #D4DEE1;
+	margin-bottom:10px;
+}
+.frame_head ul {
+	padding-left:15px;
+	list-style-position:inside;
+}
+.even_line {
+	background-color:#F0F0F0;
+}
+.evevline{
+	background-color:#FFFFF;
+
+}
+.frame_tab_right {
+}
+.tab_title {
+	height:50px
+}
+.tab_content {
+	height:50px
+}
+.frame_tab_single {
+}
+.frame_tab_single div {
+	padding:5px 0px;
+	color:#616161;
+	text-align:center;
+}
+.frame_tab_single span {
+	color:#616161;
+}
+.frame_list_layer {
+	font-size:14px;
+	padding:0 0px 0px;
+}
+.frame_list_layer dl {
+}
+.frame_list_layer dd {
+	padding:0;
+}
+.frame_list_layer table {
+	width:100%;
+	font-size:12px;
+	border:solid 1px #C9D3E1;
+	background:#F3F5F8;
+	border-collapse: collapse;
+}
+.frame_list_layer td {
+	font-size:12px;
+	border:solid 1px #C9D3E1;
+	text-align:center;
+	color:#444;
+	padding:0px;
+}
+.frame_list_layer th {
+	font-size:12px;
+	border:solid 1px #C9D3E1;
+	text-align:center;
+	color:#002a70;
+	font-weight:400;
+	padding:5px;
+}
+.frame_list_layer thead th {
+	background:#D7E3F3;
+}
+.frame_list_layer tbody th {
+	background:#E9F0FA;
+}
+/********************add news 2011.7.12************************/
+
+#header
+{
+	background:url("../images/main_top_bg.gif") repeat-x;	
+        width : 100%;		
+	height:64px;	
+}
+.f_center
+{
+    height:60px;
+    width:1000px;
+    margin:auto;
+}
+.image
+{	
+    /*padding-left:60px;*/
+	float:left;
+	position:relative;
+	left:0px;
+}
+.back_quick
+{
+   /*height:53px;
+   width:180px;*/
+   margin-top:3px;
+   position:relative;
+   float:right;
+   right:10px;
+}
+/*#center_left ul
+{
+	background:#cee5f3;
+	border:solid 1px #97b7ce;
+}
+
+#center_left ul a
+{
+	text-decoration:none;
+	font-size:14px;
+	color:#333;
+}*/
+#center_right
+{
+	background:#fff;
+}
+.menu
+{
+	background-color:#f0f0f0;
+	margin-bottom:8px;
+}
+.menu_title
+{
+	width:130px;
+	font-size:14px;
+	color:#1a6d97;
+	font-weight:bold;
+	border:0px;
+	background:#e7e7e9;
+	height:25px;
+	line-height:25px;
+	font-family:"微软雅黑", Tahoma, Verdana, sans-serif;
+}
+
+.menu_check
+{
+	display:none;
+	width:130px;
+}
+.menu_check ul
+{
+	list-style:none;
+	
+}
+.menu_check a
+{
+	
+	font-size:12px;
+	color:#6a6a6a;
+	text-decoration:none;
+	margin-left:10px;
+}
+.menu_check a:hover
+{
+	color:#016fbd;
+	font-weight:bold;
+}
+
+.menu_check  li
+{
+	border-bottom:solid 1px #e0e0e0;
+	border-top:solid 1px #fff;
+}
+.menu_check  span
+{
+
+}
+
+div#body_null
+{	
+	width : 100%;
+	background-color:#D3D3D8;
+}
+.footer_pos
+{
+    position:fixed;
+    bottom:-4px;
+    left:0px;
+    right:0px;
+}
+</style>
+<script>
+var fieldflag = '3';
+
+function init_upgrade()
+{
+	var localstr = window.location.search;
+	localstr = localstr.replace(/\s/g, "");
+	var oldtime = localstr.split("?");
+	var myDate = new Date();
+	var mytime = Math.ceil((myDate.getTime())/1000);
+	var interval = 0;
+	if((localstr == "")||(localstr == null))
+	{
+		window.location.replace("./firm_upgrade.html?"+mytime);
+		return;
+	}else
+	{
+		interval = mytime - parseInt(oldtime[1]); 
+		if(interval > 20)
+		{
+			window.location.replace("./firm_upgrade.html");
+			return;
+		}
+	}
+	document.getElementById('iframe_hidden').style.display = "none";
+	sendRequest("/boaform/web_upgrade_flag_show","none:noned",function(data){ 
+		if(data.web_upgrade_flag == '0')
+		{
+			fieldflag = '0';
+			document.getElementById('partinfo').innerHTML = "主分区";
+		}
+		else if(data.web_upgrade_flag == '1')
+		{
+			fieldflag = '1';
+			document.getElementById('partinfo').innerHTML = "备用分区";
+		}
+		else
+		{
+			fieldflag = '2';
+			document.getElementById('partinfo').innerHTML = "未知";
+		}
+	});
+}
+
+function getiniterror()
+{
+	sendRequest("/boaform/get_upgrade_status","none:noned",function(dataf){ 
+			if(parseInt(dataf.UpgradeStatus) == 3)
+			{
+							switch (parseInt(dataf.ErrCode))
+							{
+								case 0:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：无错误码";
+      					break;
+      					case 1:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：获取当前分区失败,请重启设备后重试！";
+      					break;
+      					case 2:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：获取升级文件头部信息失败,请重启设备后重试！";
+      					break;
+      					case 3:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：升级发生冲突,请重启设备后重试！";
+      					break;
+      					case 4:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：升级文件超出范围,请重启设备后重试！";
+      					break;
+      					case 5:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：获取升级文件CRC信息失败,请重启设备后重试！";
+      					break;
+      					case 6:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：块写入失败,请重启设备后重试！";
+      					break;
+      					case 7:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：块写入超时,请重启设备后重试！";
+      					break;
+      					case 8:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：CRC校验失败,请重启设备后重试！";
+      					break;
+      					case 9:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：无效参数,请重启设备后重试！";
+      					break;
+      					case 10:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：设置分区标志失败,请重启设备后重试！";
+      					break;
+      					case 11:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：升级文件为空,请重启设备后重试！";
+      					break;
+      					case 12:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：打开升级文件失败,请重启设备后重试！";
+      					break;
+      					case 13:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：升级文件不匹配,请重启设备后重试！";
+      					break;
+     						default:
+									document.getElementById("initerrorinfo").innerHTML="上次升级错误原因：未知失败原因,错误码为:"+dataf.ErrCode+",请重启设备后重试！";
+      					break;	
+							}
+			
+			}else if(parseInt(dataf.UpgradeStatus) == 1)
+			{
+				document.getElementById("submitbutton").disabled = true;
+			}else
+			{
+				document.getElementById("submitbutton").disabled = false;
+			}
+	});
+}
+
+ //创建AJAX引擎
+var xmlhttp = null;
+function createXmlhttp () {
+ if (window.XMLHttpRequest) {
+     //针对FireFox，Mozillar，Opera，Safari，IE7，IE8
+//	alert(navigator.userAgent);
+     xmlhttp = new XMLHttpRequest();
+     //针对某些特定版本的mozillar浏览器的BUG进行修正
+     if (xmlhttp.overrideMimeType) {
+            xmlhttp.overrideMimeType("text/xml");
+        }
+ 	}else if (window.ActiveXObject) {
+         //针对IE6，IE5.5，IE5
+        //两个可以用于创建XMLHTTPRequest对象的控件名称，保存在一个js的数组中
+        //排在前面的版本较新
+        var activexName = ["MSXML2.XMLHTTP","Microsoft.XMLHTTP"];
+        for (var i = 0; i < activexName.length; i++) {
+            try{
+                //取出一个控件名进行创建，如果创建成功就终止循环
+                //如果创建失败，回抛出异常，然后可以继续循环，继续尝试创建
+                xmlhttp = new ActiveXObject(activexName[i]);
+                break;
+            } catch(e){
+			//	alert(e);
+            }
+        }
+    }
+}
+var currentCallBack = null;
+var nonedatav = Math.random();
+//发送请求内容
+function sendRequest(url,param,callback){
+    currentCallBack = callback;
+    createXmlhttp ();
+	try{
+		xmlhttp.onreadystatechange = processResponse;  //回调方法
+		xmlhttp.open("post",url + ".cgi",true); // true异步
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+		if(!param['mode_name']){
+			var str = "mode_name="+url+"&";
+			str += "nonedata="+nonedatav+"&";
+		}else{
+			var str = '';
+			str += "nonedata="+nonedatav+"&";
+		}
+		for(var i in param){
+			str += i + "=" + encodeURIComponent(param[i]) + "&";
+		}
+		str = str.substring(0,str.length -1);
+		xmlhttp.send(str);
+	}catch(e){
+	//	alert(e);
+	}
+}
+function processResponse() {
+	if ( xmlhttp.readyState == 4 ) {
+		if ( xmlhttp.status == 200 ||  xmlhttp.status==0) {
+			var str = xmlhttp.responseText;
+			webdata = eval("("+str+")");
+			if(currentCallBack){
+				currentCallBack(webdata);
+			}
+		}
+	}
+}
+function upgrade(){
+	if(document.getElementById('put_file1').value == "")
+	{
+		alert("请选择要升级的文件！");
+		window.location.reload();
+		return;
+	}
+	str = document.getElementById('put_file1').value;
+	if(str.slice(str.lastIndexOf(".")+1)!="bin")
+	{
+		alert("文件类型错误！");
+		window.location.reload();
+		return;
+	}
+	else if(str.slice(str.lastIndexOf(".")+1)=="bin")
+	{
+		if(!confirm("升级后设备将自重启，确定升级吗？"))
+		{
+			window.location.reload();
+			return;
+		}else
+		{
+			document.getElementById('put_file_form').submit();	
+		}
+	}else
+	{
+		alert("异常错误");
+	}
+	
+	if(str.slice(str.lastIndexOf(".")+1)=="bin")
+	{
+		document.getElementById("reset_div").style.display = "block";
+		document.getElementById("start_upload").style.display="block"; /*点击按钮*/
+		document.getElementById("upgrade").style.display="none"; /*正在上传文件*/
+		document.getElementById("end_upload").style.display="none"; /*文件上传完成，开始升级*/
+		document.getElementById("restart").style.display="none"; /*升级中*/
+		document.getElementById("upgrade_end").style.display="none"; /*升级结束*/
+		document.getElementById("re_start").style.display="none"; /*设备重启*/
+		document.getElementById("err_message").style.display="none"; /*错误信息显示*/
+		var count = 100;  /*上传文件时间, 暂不用*/
+		var count1 = 1;   /*触发重启标志*/
+		var count2 = 120;  /*重启设备*/
+		var count3 = 300;  /*升级总时长*/
+		var rebootflag = 0;
+		var upgrade_timer=window.setInterval(function(){      /* 每隔一秒执行一次函数 */
+
+		if(count3 > 0)
+		{
+			count3--;	
+		}else
+		{
+			document.getElementById("submitbutton").disabled = true;
+			document.getElementById("err_message").style.display="block"; /*错误信息显示*/
+			document.getElementById("errmsg").innerHTML="升级超时,请重启设备后重试！";
+			window.clearInterval(upgrade_timer); 
+			return;
+		}
+		
+		if(rebootflag == 1)
+		{
+			count2--;
+			document.getElementById("re_startime").innerHTML = count2;
+			if((count2 < 0) || (count2 == 0))
+			{
+				var nonedatav = Math.random();
+				window.location.replace("./index.html?none="+nonedatav);
+				window.clearInterval(upgrade_timer); 				
+			}
+		}
+		
+		var strresult = "";
+	  strresult = window.frames["iframe_hidden"].document.body.innerHTML;
+	  strresult = strresult.replace(/\s/g, "");
+	  
+	  document.getElementById("reset_div").style.display = "block";
+		document.getElementById("start_upload").style.display="block";
+		document.getElementById("upgrade").style.display="block";
+	  
+		if((strresult != "") && (strresult != " ") && (strresult != null) && (strresult != "null") && (strresult != "undefined"))
+		{
+			if((strresult.indexOf("file_upload_over")) != -1)
+			{
+				document.getElementById("submitbutton").disabled = true;
+				document.getElementById("end_upload").style.display="block"; /*文件上传完成，开始升级*/
+				/* 循环查询升级状态 */
+				if((rebootflag != 1)&&(rebootflag != 2))
+				{
+					sendRequest("/boaform/get_upgrade_status","none:noned",function(data){ 
+						switch (parseInt(data.UpgradeStatus))
+						{
+							case 0:
+								document.getElementById("restart").style.display="block";
+								document.getElementById("restart_info").innerHTML="未开始升级,";
+      				break;
+      				case 1:
+								document.getElementById("restart").style.display="block";
+								document.getElementById("restart_info").innerHTML="正在升级中...";
+      				break;
+      				case 2:
+      					document.getElementById("upgrade_end").style.display="block"; /*升级结束*/
+								document.getElementById("upgrade_end_info").innerHTML="升级成功";
+								
+								if(count1 == 1) /* 升级成功时，只重启一次 */
+								{
+									count1--;
+									document.getElementById("re_start").style.display="block"; /*重启*/
+									//var obj = new Object;    //开始触发重启
+									//sendRequest("/boaform/device_reset",obj,function(datav){ 
+									//});
+								}
+								rebootflag = 1;		
+      				break;
+      				case 3:
+								document.getElementById("upgrade_end").style.display="block";
+								document.getElementById("upgrade_end_info").innerHTML="升级失败,";
+								count1--;
+								rebootflag = 2;
+								window.clearInterval(upgrade_timer); 
+      				break;
+     					default:
+      				break;	
+						}
+						
+						if(parseInt(data.UpgradeStatus) == 3)/* 升级失败，解析错误码 */
+						{
+							switch (parseInt(data.ErrCode))
+							{
+								case 0:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="无错误码";
+      					break;
+      					case 1:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="获取当前分区失败,请重启设备后重试！";
+      					break;
+      					case 2:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="获取升级文件头部信息失败,请重启设备后重试！";
+      					break;
+      					case 3:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="升级发生冲突,请重启设备后重试！";
+      					break;
+      					case 4:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="升级文件超出范围,请重启设备后重试！";
+      					break;
+      					case 5:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="获取升级文件CRC信息失败,请重启设备后重试！";
+      					break;
+      					case 6:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="块写入失败,请重启设备后重试！";
+      					break;
+      					case 7:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="块写入超时,请重启设备后重试！";
+      					break;
+      					case 8:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="CRC校验失败,请重启设备后重试！";
+      					break;
+      					case 9:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="无效参数,请重启设备后重试！";
+      					break;
+      					case 10:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="设置分区标志失败,请重启设备后重试！";
+      					break;
+      					case 11:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="升级文件为空,请重启设备后重试！";
+      					break;
+      					case 12:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="打开升级文件失败,请重启设备后重试！";
+      					break;
+      					case 13:
+									document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="升级文件不匹配,请重启设备后重试！";
+      					break;
+     						default:
+     							document.getElementById("err_message").style.display="block";
+									document.getElementById("errmsg").innerHTML="未知失败原因,错误码为:"+data.ErrCode+",请重启设备后重试！";
+      					break;	
+							}
+						}else
+						{
+							
+						}
+
+					});	
+				}			
+			}else if((strresult.indexOf("upgrade_failed")) != -1)
+			{
+					document.getElementById("submitbutton").disabled = true;
+					count1--;
+			    document.getElementById("err_message").style.display="block";
+					window.clearInterval(upgrade_timer); 
+					document.getElementById("errmsg").innerHTML="上传文件出错,升级失败,请重启后重试！";
+					return;
+			}
+			else if((strresult.indexOf("fileopenfaild")) != -1)
+			{
+					document.getElementById("submitbutton").disabled = true;
+					count1--;
+			    document.getElementById("err_message").style.display="block";
+					window.clearInterval(upgrade_timer); 
+					document.getElementById("errmsg").innerHTML="文件打开失败,请重启后重试！";
+					return;
+			}
+			else if((strresult.indexOf("filesize_error")) != -1)
+			{
+					document.getElementById("submitbutton").disabled = true;
+					count1--;
+			    document.getElementById("err_message").style.display="block";
+					window.clearInterval(upgrade_timer); 
+					document.getElementById("errmsg").innerHTML="升级失败;文件长度错误,请重启后重试！";   
+					return; 
+			}
+			else if((strresult.indexOf("upgrade_ing")) != -1)
+			{
+					document.getElementById("submitbutton").disabled = true;
+					count1--;
+			    document.getElementById("err_message").style.display="block";
+					window.clearInterval(upgrade_timer); 
+					document.getElementById("errmsg").innerHTML="该板子已经升级过一次,请重启后再开始升级！";   
+					return; 
+			}
+			else
+			{
+					document.getElementById("submitbutton").disabled = true;
+					count1--;
+			    document.getElementById("err_message").style.display="block";
+					window.clearInterval(upgrade_timer); 
+					document.getElementById("errmsg").innerHTML=strresult;
+					return;
+			}
+		}
+		else
+		{
+			count--; /*文件上传中*/
+		}
+	 	document.getElementById("submitbutton").disabled = true;
+	 	}, 1000);
+	}
+	else
+	{
+		alert("else 异常");
+	}	
+}
+</script>
+</head>
+<body onload="init_upgrade();">	
+<div class="frame_tab_layer" id="update_div" style="width:608px;height:540px;position:absolute;margin-top:-270px;margin-left:-304px;top:50%;left:50%;">
+  <dl>
+    <dt class="frame_head">固件升级</dt>
+    <dd>
+      <p> 警告:升级软件需要花费几分钟的时间，请不要关闭电源、刷新页面或切换到其他页面。</p>
+      <div> 当前分区：<span id="partinfo"></span></div>
+      <div id="update_div">
+           <form id="put_file_form" target="iframe_hidden"  action="/boaform/web_form_upload_file.cgi" method="post" enctype="multipart/form-data">
+          <table width="100%" border="0" cellpadding="5" cellspacing="1" class="cmenutitle">
+            <tr>
+              <th class="frame_tab_left" width="31%" align="right">升级文件：</th>
+              <td class="frame_tab_right" width="69%"><input type="file" name="put_file1" id="put_file1" class="input_text" size="40"/></td>
+            </tr>
+          </table>
+          <div class="btn_layer">
+            <center>
+		    <input type="button" value="升 级"  id="submitbutton" onClick="upgrade()" class="button">
+            </center>
+          </div>
+        </form>
+      </div>
+      <div><span id="initerrorinfo" style="color:red;"></span></div>
+    </dd>
+  </dl>
+</div>
+
+<div class="frame_tab_layer off" id="reset_div" style="width:608px;height:540px;position:absolute;margin-top:-100px;margin-left:-304px;top:60%;left:50%;">
+  <dl>
+   <dt class="frame_head">升级信息</dt>
+    <dd>
+	   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="td_main_border">
+        <tr>
+          <td class="cwhite" style="border-bottom:0px">
+         	</td>
+        </tr>
+        <tr>
+		      <td id="start_upload" style="text-align:center; display:none;height:35px;border-bottom:0px"><strong>点击升级按钮，准备上传升级文件...&nbsp;</strong> </td>
+        </tr>  
+		    <tr>
+		      <td id="upgrade" style="text-align:center; display:none;height:35px;border-bottom:0px"><strong>设备正在上传文件，请稍候……&nbsp;<span id="upgrtime"></span></strong> </td>
+        </tr>
+         <tr>
+		      <td id="end_upload" style="text-align:center; display:none;height:35px;border-bottom:0px"><strong>文件上传成功，开始升级，请稍候……&nbsp;</strong> </td>
+        </tr>
+		  	<tr>
+		      <td id="restart" style="text-align:center; display:none;height:35px;border-bottom:0px"><strong><span id="restart_info"></span>&nbsp;<span id="restartime"></span></strong> </td>
+        </tr>
+        <tr>
+		      <td id="upgrade_end" style="text-align:center; display:none;height:35px;border-bottom:0px"><strong><span id="upgrade_end_info"></span></strong> </td>
+        </tr>
+			  <tr>
+		      <td id="re_start" style="text-align:center; display:none;height:35px;border-bottom:0px"><strong>设备正在重启，请稍候……&nbsp;<span id="re_startime"></span></strong> </td>
+        </tr>
+        <tr>
+		      <td id="err_message" style="text-align:center; display:none;height:35px;border-bottom:0px"><strong id="errmsg" style="color:red">&nbsp;</strong> </td>
+        </tr>   
+      </table>
+	</dd>
+      <iframe name="iframe_hidden" id="iframe_hidden" src="./dblank_result.html" height="300px" width="650px" frameborder="no" style="border:none 1px #E0DFE4; margin:5px"></iframe>
+  </dl>
+ </div>
+<script>
+	getiniterror();
+</script>
+</body>
+</html>

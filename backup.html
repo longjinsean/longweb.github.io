@@ -1,0 +1,49 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>backup</title>
+<style type="text/css">
+body{
+	margin:0px;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+.text{
+	position:absolute;
+	width:195px;
+	left:3px;
+	top:3px;
+	border: 1px solid #D2D2D2;
+}
+.button{
+	position:absolute;
+	left:205px;
+	width:60px;	
+	top:3px;
+	background:#4f84bf;
+	color:#f3f3f3;
+	border:#8fc7fa;
+	cursor:pointer;
+}
+.file{
+	/*filter:alpha(opacity=0);*/
+	/*opacity:0;*/
+	z-index:100;
+	cursor:pointer;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+</style>
+</head>
+<body>
+<form id="backup_form" name="backup_form" action="/cgi-bin-igd/parame_put_file.cgi" method="post" enctype="multipart/form-data">
+<input type="file" class="file" name="put_file" id="parame_backup" size="30"/>
+<script type="text/javascript">
+window.parent.backup_form = document.getElementById("backup_form");
+window.parent.backup_val = document.getElementById('parame_backup');
+</script>
+</body>
+</html>
+

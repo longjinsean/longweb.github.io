@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Pragma" content="no-cache">   
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>refusedaccess</title>
+<style type="text/css">
+body{
+	margin:0px;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+.text{
+	position:absolute;
+	width:195px;
+	left:3px;
+	top:3px;
+	border: 1px solid #D2D2D2;
+}
+.button{
+	position:absolute;
+	left:205px;
+	width:60px;	
+	top:3px;
+	background:#4f84bf;
+	color:#f3f3f3;
+	border:#8fc7fa;
+	cursor:pointer;
+}
+.file{
+	/*filter:alpha(opacity=0);*/
+	/*opacity:0;*/
+	z-index:100;
+	cursor:pointer;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+</style>
+</head>
+<body>
+<p>
+	refuse access, acount auth faild.
+</p>
+<script>
+function indexauth()
+{
+	var nonedatav = Math.random();
+	window.location = "./index.html?none="+nonedatav;
+}
+window.setTimeout('indexauth();',2000);
+</script>
+</body>
+</html>
+

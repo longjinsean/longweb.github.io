@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="Pragma" content="no-cache">   
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>log set</title>
+<style type="text/css">
+body{margin:0;padding:0;margin-top:5px;margin-left:50px;font-size:12px;}
+td{color:#000;font-size:12px;}
+td{font-family:verdana,"宋体";}
+</style>
+<script>
+function init_log(){
+	sendRequest("/boaform/web_modify_log_show","none:noned",function(datax){
+		document.getElementById("log_text").value = parseInt(datax.web_log_enable);
+		});
+}
+ //创建AJAX引擎
+var xmlhttp = null;
+function createXmlhttp () {
+ if (window.XMLHttpRequest) {
+     //针对FireFox，Mozillar，Opera，Safari，IE7，IE8
+//	alert(navigator.userAgent);
+     xmlhttp = new XMLHttpRequest();
+     //针对某些特定版本的mozillar浏览器的BUG进行修正
+     if (xmlhttp.overrideMimeType) {
+            xmlhttp.overrideMimeType("text/xml");
+        }
+ 	}else if (window.ActiveXObject) {
+         //针对IE6，IE5.5，IE5
+        //两个可以用于创建XMLHTTPRequest对象的控件名称，保存在一个js的数组中
+        //排在前面的版本较新
+        var activexName = ["MSXML2.XMLHTTP","Microsoft.XMLHTTP"];
+        for (var i = 0; i < activexName.length; i++) {
+            try{
+                //取出一个控件名进行创建，如果创建成功就终止循环
+                //如果创建失败，回抛出异常，然后可以继续循环，继续尝试创建
+                xmlhttp = new ActiveXObject(activexName[i]);
+                break;
+            } catch(e){
+			//	alert(e);
+            }
+        }
+    }
+}
+var currentCallBack = null;
+var nonedatav = Math.random();
+//发送请求内容
+function sendRequest(url,param,callback){
+    currentCallBack = callback;
+    createXmlhttp ();
+	try{
+		xmlhttp.onreadystatechange = processResponse;  //回调方法
+		xmlhttp.open("post",url + ".cgi",true); // true异步
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+		if(!param['mode_name']){
+			var str = "mode_name="+url+"&";
+			str += "nonedata="+nonedatav+"&";
+		}else{
+			var str = '';
+			str += "nonedata="+nonedatav+"&";
+		}
+		for(var i in param){
+			str += i + "=" + encodeURIComponent(param[i]) + "&";
+		}
+		str = str.substring(0,str.length -1);
+		xmlhttp.send(str);
+	}catch(e){
+	//	alert(e);
+	}
+}
+function processResponse() {
+	if ( xmlhttp.readyState == 4 ) {
+		if ( xmlhttp.status == 200 ||  xmlhttp.status==0) {
+			var str = xmlhttp.responseText;
+			var webdata = eval("("+str+")");
+			if(currentCallBack){
+				currentCallBack(webdata);
+			}
+		}
+	}
+}
+
+function set_log_display(){
+if((document.getElementById("log_text").value != "0") && (document.getElementById("log_text").value != "1"))
+	{
+		alert("该值只能是0或1...");
+		return;
+	}
+  var web_log_text = document.getElementById('log_text').value;
+  var obj = new Object;
+  obj.log_web_enable = web_log_text;
+	var cgipath = "/boaform/";
+	var nonedatav = Math.random();
+	sendRequest(cgipath+"web_modify_log_set", obj,function(data){
+		if(data == "SUCCESS")
+	  {
+			alert("设置成功！");
+		}
+	});
+}
+
+</script>
+</head>
+
+<body onload="init_log();">
+<table cellpadding="0" cellspacing="0" id="bgimg" > 
+		<tr id="toptr"><td>调试日志开关：</td><td><input id="log_text"  maxlength="1" type="text" value="0"/></td></tr>
+		<tr id="toptr"><td colspan = "2"><input id="save_logset" type="button" value="确 定" onclick="set_log_display();" /></td></tr>
+</table>
+</body>
+</html>

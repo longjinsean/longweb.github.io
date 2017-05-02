@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>管理平台登陆</title>
+<style type="text/css">
+body{margin:0;padding:0;margin-top:100px;font-size:12px;background: #8C93A6;}
+td{color:#000;font-size:12px;}
+td{font-family:verdana,"宋体";}
+#toptr{height:70px;}
+#top{position:relative; width:790px;height:70px; z-index:5; background-color:#022556; background:url(./images/login_top.jpg); background-repeat:no-repeat;top:0px;}
+
+#bottomtr{height:20px;}
+#lefttd{width:30px;}
+#bgimg{position:relative;width:500px; height:275px;margin:0 auto; margin-top:60px; border-top:#147fbf 1px solid; border-left:#147fbf 1px solid; border-right:#147fbf 1px solid; border-bottom:#147fbf 1px solid; background-position:left 40px; background:#427594;}
+#loginput_bak{solid #0080F8;width:180px;font-family:"宋体",verdana;}
+.loginput{width:135px;border:1px #87a6c3 solid;background:#edeced;}
+.bt{background:url(/images/bt.jpg);width:58px;height:16px;margin:0px;padding:0px;border:0px;font-size:12px;} 
+
+.title_index{
+	position:absolute;
+	height:45px;
+	width:320px;
+	font-size:18px;
+	font-weight:bold;
+	color:white;
+	text-align:left;
+	left:136px;
+	top: 90px;
+}
+</style>
+<script>
+	window.onload=function(){
+		window.document.loginform.username.focus();
+    }
+    function loid_cancel(){
+    		var nonedatav = Math.random();
+        document.loginform.action="./userlogin.html?none="+nonedatav;
+        loginform.submit();
+    }
+    function login(){
+    	alert(document.getElementById("username").value);
+        document.loginform.action="/cgi-bin/webif/login.sh";
+        loginform.submit();
+    }
+    function change_lang_en(){
+//        document.getElementById("english").style.color = '#FFFFFF';
+//        document.getElementById("chinese").style.color = '#000000';
+        document.getElementById("lang").value = 'en';
+        document.getElementById("lang_user").innerHTML = 'Username:';
+        document.getElementById("lang_password").innerHTML = 'Password:';
+        document.getElementById("Submit").value = 'Login';
+        document.getElementById("Regist").value = 'Cancel';
+        document.getElementById("username").focus();
+    }
+    function change_lang_ch(){
+//        document.getElementById("english").style.color = '#000000';
+//        document.getElementById("chinese").style.color = '#FFFFFF';
+        document.getElementById("lang").value = 'zh';
+        document.getElementById("lang_user").innerHTML = '用户名：';
+        document.getElementById("lang_password").innerHTML = '密&nbsp;&nbsp;&nbsp;码：';
+        document.getElementById("Submit").value = '登录';
+        document.getElementById("Regist").value = '取消';
+        document.getElementById("username").focus();
+    }
+    function detectCapsLock(e){
+        var valueCapsLock=e.keyCode||e.which;
+        var valueShift=e.shiftKey ? e.shiftKey:((valueCapsLock==16 ) ? true : false );
+        if (((valueCapsLock >=65 && valueCapsLock <= 90 ) && ! valueShift)||((valueCapsLock >=97 && valueCapsLock <= 122 ) && valueShift))  
+         {
+           //document.getElementById("password").title = "您的大写锁定键已打开！";
+           document.getElementById("capStatus").innerHTML = "(大写锁定键已打开！)";
+         }
+        else
+         {
+           //document.getElementById("password").title = "";
+           document.getElementById("capStatus").innerHTML = "";
+         }
+   }
+	window.onload=function(){
+		window.document.loginform.username.focus();
+		change_lang_ch();
+	}
+</script>
+</head>
+
+<body>
+<table align="center" cellpadding="0" cellspacing="0" id="bgimg" > 
+    <form name="loginform" id="loginform" action="" method="post">
+        <input type="hidden" name="lang" id="lang" value="zh"/>
+		<tr id="toptr"><td height="67" colspan="2"><div id="top" style="width:100%;"></div></td></tr>
+		<tr>
+			<td id="lefttd"></td>
+			<td>
+                <table width="450" height="207" border="0" cellpadding="0" cellspacing="3" id="logininput">
+                    <tr>
+                    <td height="62" colspan="3">
+                    <div class="title_index"><span> 欢迎使用天翼宽带家庭网关 </span><br/>
+                    <span style="font-size:14px;font-weight:normal;" > 请输入用户名、密码登录 </span>
+                    </div>
+                    </td>
+                  </tr>
+					<tr>
+						<td style="color:white;" width="165" height="27" align="right" id="lang_user">用户名:</td>
+						<td colspan="2" align="left"><input type="text" id="username" name="username" value="useradmin" class="loginput" /></td>
+					</tr>
+					<tr>
+						<td style="color:white;" height="18" align="right" id="lang_password">密&nbsp;&nbsp;&nbsp;码:</td>
+						<td colspan="2" align="left"><input type="password" id="password" name="password"  class="loginput" onkeypress="detectCapsLock(event)" /><font id ="capStatus" color="#FFFFFF"></font>
+					</tr>
+					<tr>
+						<td height="85"></td>
+                    <td width="91" colspan="1" align="center"><input type="submit" name="Submit" id="Submit" value="登录" onclick="login()" /></td>
+                        <td width="177" colspan="1" ><input type="submit" name="Regist" id="Regist" value="取消" onclick="loid_cancel()" /></td>
+				  </tr>
+				</table>
+		  </td>
+		</tr>
+		<tr id="bottomtr"><td></td></tr>
+	</form>
+</table>
+</body>
+</html>
